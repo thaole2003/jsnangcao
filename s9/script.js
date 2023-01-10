@@ -21,10 +21,48 @@ const restauraut = {
     order: function(startIndex, mainIndex) {
         return [this.startMenu[startIndex], this.mainMenu[mainIndex]];
     },
+    orderDelivery: function({ address, mainIndex, startMenu, time }) {
+        console.log(
+            "xin chào, đơn hàng của bạn sẽ giao tới " +
+            address +
+            "gồm : " +
+            this.startMenu[startMenu],
+            this.mainMenu[mainIndex] + "lúc" + time
+        );
+    },
 };
+const today = new Date();
+const time =
+    today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 //Destructuring_Objects
 const { name, openingHour, categories } = restauraut;
-console.log(name, openingHour, categories);
+const currentHours = restauraut.orderDelivery({
+    mainDeli: "gà chiên",
+    time: time,
+    address: "322 My dinh",
+    mainIndex: 1,
+    startMenu: 1,
+});
+// console.log(name, openingHour, categories);
+const {
+    name: nameRestaurant,
+    openingHour: hours,
+    categories: tags,
+} = restauraut;
+// console.log(nameRestaurant, hours, tags);
+const { menu = [], startMenu: starter = [] } = restauraut;
+// console.log(menu, starter);
+//mutating variables
+let ab = 1;
+let bc = 2;
+const objj = { ab: 3, bc: 4, ca: 5 };
+({ ab, bc } = objj);
+// console.log(ab, bc);
+//nested objects
+const {
+    fri: { open: op, close: cl },
+} = openingHour;
+// console.log(op, cl);
 
 //destructuring_array
 const arr = [1, 2, 3];
