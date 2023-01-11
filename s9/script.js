@@ -39,24 +39,34 @@ const restauraut = {
     },
 };
 // Short Circuiting (&& and ||)
-console.log("ddd" || 3);
-console.log("" || "jonas ");
-console.log(true || 0);
-console.log(undefined || null);
-console.log(undefined || 0 || "" || "hello" || 23 || null);
-restauraut.numGuest = 23;
-const Guest1 = restauraut.numGuest ? restauraut.numGuest : 10;
-console.log(Guest1);
-const Guest2 = restauraut.numGuest || 10;
-console.log(Guest2);
-console.log("--AND--");
-console.log(0 && 3);
-console.log(3 && "AAA");
-console.log(0 && "a");
-if (restauraut.orderPizza) {
-    restauraut.orderPizza("món 1", "món 2");
-}
-restauraut.orderPizza && restauraut.orderPizza("món 1", "món 2");
+// console.log("ddd" || 3);
+// console.log("" || "jonas ");
+// console.log(true || 0);
+// console.log(undefined || null);
+// console.log(undefined || 0 || "" || "hello" || 23 || null);
+// restauraut.numGuest = 23;
+// const Guest1 = restauraut.numGuest ? restauraut.numGuest : 10;
+// console.log(Guest1);
+// const Guest2 = restauraut.numGuest || 10;
+// console.log(Guest2);
+// console.log("--AND--");
+// console.log(0 && 3);
+// console.log(3 && "AAA");
+// console.log(0 && "a");
+// if (restauraut.orderPizza) {
+//     restauraut.orderPizza("món 1", "món 2");
+// }
+// restauraut.orderPizza && restauraut.orderPizza("món 1", "món 2");
+
+// The Nullish Coalescing Operator (??)
+restauraut.numGuest == 0;
+const Guest = restauraut.numGuest || 10;
+console.log(Guest);
+
+//NUllish: null or undefined (0 or '')
+const GuestCorrect = restauraut.numGuest ? ? 10;
+console.log(GuestCorrect);
+
 // console.log(object);
 // //spread ,beacase on right side of
 // const arrNew = [1, 2, ...[3, 4, 5]];
