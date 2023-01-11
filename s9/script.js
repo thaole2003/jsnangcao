@@ -1,18 +1,18 @@
-const weekday = ["sat", "thu", "fri", "sun", "thi", "to"];
-const openingHour = {
-    [weekday[1]]: {
-        open: 12,
-        close: 22,
-    },
-    [weekday[2]]: {
-        open: 0,
-        close: 24,
-    },
-    [weekday[3]]: {
-        open: 2,
-        close: 20,
-    },
-};
+const day = ["sat", "thu", "fri", "sun", "thi", "to"];
+// const openingHour = {
+//     sat: {
+//         open: 12,
+//         close: 22,
+//     },
+//     thu: {
+//         open: 0,
+//         close: 24,
+//     },
+//     [weekday[3]]: {
+//         open: 2,
+//         close: 20,
+//     },
+// };
 
 const restauraut = {
     name: "Classic Anio",
@@ -20,8 +20,22 @@ const restauraut = {
     categories: ["A", "B", "C"],
     startMenu: ["Ga", "melon", "origin"],
     mainMenu: ["Piza", "Fish", "Meat"],
-    openingHour,
-    openingHour: function(startIndex, mainIndex) {
+    openingHour: {
+        sat: {
+            open: 12,
+            close: 22,
+        },
+        thu: {
+            open: 0,
+            close: 24,
+        },
+        [day[3]]: {
+            open: 2,
+            close: 20,
+        },
+    },
+
+    oder: function(startIndex, mainIndex) {
         return [this.startMenu[startIndex], this.mainMenu[mainIndex]];
     },
     orderDelivery: function({ address, mainIndex, startMenu, time }) {
@@ -41,8 +55,20 @@ const restauraut = {
         console.log(otherabc);
     },
 };
-//
-console.log(restauraut);
+//Optional Chaining (?.)  trả về các giá trị pointer được nested hoặc undefined/null nếu không tồn tại.
+if (restauraut.openingHour && restauraut.openingHour.sat) {
+    console.log(restauraut.openingHour.sat.open);
+}
+for (let day of day) {
+    const open = restauraut.openingHour.day ? .open;
+    console.log(open);
+}
+//method 
+console.log(restauraut.oder ? .(0, 1) ? ? 'Method does not exit');
+console.log(restauraut.oderaasf ? .(0, 1) ? ? 'Method does not exit');
+
+
+// console.log(restauraut);
 // Looping Arrays: The for-of Loop
 // const arrM = [4, 3, 1, 2, 5];
 // for (const item of arrM.entries()) {
@@ -93,7 +119,7 @@ console.log(restauraut);
 // }
 // restauraut.orderPizza && restauraut.orderPizza("món 1", "món 2");
 
-// The Nullish Coalescing Operator (??)
+// The Nullish Coalescing Operator (??) nullish coalescing operator (??) để chỉ kiểm tra giá trị null hoặc undefined bên vế trái.
 // restauraut.numGuest == 0;
 // const Guest = restauraut.numGuest || 10;
 // console.log(Guest);
