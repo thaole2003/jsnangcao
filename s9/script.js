@@ -38,6 +38,30 @@ const restauraut = {
         console.log(otherabc);
     },
 };
+//Logical Assignment Operators
+const rest1 = {
+    name: "a",
+    number: 20,
+};
+const rest2 = {
+    name: "b",
+    miss: "c",
+};
+
+// rest1.number = rest1.number || 10;
+// rest2.number = rest2.number || 10;
+// rest1.number || = 10;
+// rest2.number || = 10;
+// rest1.number ? ? = 10;
+// rest2.number ? ? = 10;
+// rest2.miss = rest2.miss ? ? 'aaa';
+rest1.over = rest1.over && "abc";
+rest2.over = rest2.over && "abc";
+// rest1.over && = "abc";
+// rest2.over && = "abc";
+
+console.log(rest1);
+console.log(rest2);
 // Short Circuiting (&& and ||)
 // console.log("ddd" || 3);
 // console.log("" || "jonas ");
@@ -59,13 +83,13 @@ const restauraut = {
 // restauraut.orderPizza && restauraut.orderPizza("món 1", "món 2");
 
 // The Nullish Coalescing Operator (??)
-restauraut.numGuest == 0;
-const Guest = restauraut.numGuest || 10;
-console.log(Guest);
+// restauraut.numGuest == 0;
+// const Guest = restauraut.numGuest || 10;
+// console.log(Guest);
 
-//NUllish: null or undefined (0 or '')
-const GuestCorrect = restauraut.numGuest ? ? 10;
-console.log(GuestCorrect);
+// //NUllish: null or undefined (0 or '')
+// const GuestCorrect = restauraut.numGuest ? ? 10;
+// console.log(GuestCorrect);
 
 // console.log(object);
 // //spread ,beacase on right side of
