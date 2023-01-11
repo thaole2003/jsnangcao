@@ -38,44 +38,63 @@ const restauraut = {
         console.log(otherabc);
     },
 };
-
-//spread ,beacase on right side of
-const arrNew = [1, 2, ...[3, 4, 5]];
-console.log(arrNew);
-const [e, f, ...other] = [5, 6, 7, 5, 3, 2];
-console.log(e, f, other);
-const [mon1, , mon2, ...monother] = [
-    ...restauraut.startMenu,
-    restauraut.mainMenu,
-];
-console.log(mon1, mon2, monother);
-
-const { sat, ...allDay } = restauraut.openingHour;
-console.log(allDay);
-
-// toán tử spread Toán tử spread giải nén các phần tử trong một mảng
-const arr = [1, 2, 3];
-const newArr = [...arr, 4, 5];
-// console.log(...newArr);
-//coppy array
-const arrCoppy = [...restauraut.startMenu];
-// console.log(arrCoppy);
-//join array
-const menu = [...restauraut.startMenu, ...restauraut.mainMenu];
-// console.log(menu);
-//iterables:array,string ,maps,set not object
-const str = "JONHNY";
-const letter = [...str, "", "E"];
-
-function addSum(...number) {
-    let sum = 0;
-    for (let i = 0; i < number.length; i++) {
-        sum += number[i];
-    }
-    console.log(sum);
+// Short Circuiting (&& and ||)
+console.log("ddd" || 3);
+console.log("" || "jonas ");
+console.log(true || 0);
+console.log(undefined || null);
+console.log(undefined || 0 || "" || "hello" || 23 || null);
+restauraut.numGuest = 23;
+const Guest1 = restauraut.numGuest ? restauraut.numGuest : 10;
+console.log(Guest1);
+const Guest2 = restauraut.numGuest || 10;
+console.log(Guest2);
+console.log("--AND--");
+console.log(0 && 3);
+console.log(3 && "AAA");
+console.log(0 && "a");
+if (restauraut.orderPizza) {
+    restauraut.orderPizza("món 1", "món 2");
 }
-addSum(3, 4, 5);
-restauraut.orderPizza("món ngon 1", "món k ngon", "món bth");
+restauraut.orderPizza && restauraut.orderPizza("món 1", "món 2");
+// console.log(object);
+// //spread ,beacase on right side of
+// const arrNew = [1, 2, ...[3, 4, 5]];
+// console.log(arrNew);
+// const [e, f, ...other] = [5, 6, 7, 5, 3, 2];
+// console.log(e, f, other);
+// const [mon1, , mon2, ...monother] = [
+//     ...restauraut.startMenu,
+//     restauraut.mainMenu,
+// ];
+// console.log(mon1, mon2, monother);
+
+// const { sat, ...allDay } = restauraut.openingHour;
+// console.log(allDay);
+
+// // toán tử spread Toán tử spread giải nén các phần tử trong một mảng
+// const arr = [1, 2, 3];
+// const newArr = [...arr, 4, 5];
+// // console.log(...newArr);
+// //coppy array
+// const arrCoppy = [...restauraut.startMenu];
+// // console.log(arrCoppy);
+// //join array
+// const menu = [...restauraut.startMenu, ...restauraut.mainMenu];
+// // console.log(menu);
+// //iterables:array,string ,maps,set not object
+// const str = "JONHNY";
+// const letter = [...str, "", "E"];
+
+// function addSum(...number) {
+//     let sum = 0;
+//     for (let i = 0; i < number.length; i++) {
+//         sum += number[i];
+//     }
+//     console.log(sum);
+// }
+// addSum(3, 4, 5);
+// restauraut.orderPizza("món ngon 1", "món k ngon", "món bth");
 // console.log(letter);
 // const ingredient = [
 //     prompt("Let's is 1 "),
