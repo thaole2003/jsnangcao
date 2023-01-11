@@ -38,15 +38,20 @@ const restauraut = {
         console.log(otherabc);
     },
 };
+// Looping Arrays: The for-of Loop
+const arrM = [4, 3, 1, 2, 5];
+for (const item of arrM.entries()) {
+    console.log(item[0] + 1 + " : " + item[1]);
+}
 //Logical Assignment Operators
-const rest1 = {
-    name: "a",
-    number: 20,
-};
-const rest2 = {
-    name: "b",
-    miss: "c",
-};
+// const rest1 = {
+//     name: "a",
+//     number: 20,
+// };
+// const rest2 = {
+//     name: "b",
+//     miss: "c",
+// };
 //Coding Challenge #1
 
 // rest1.number = rest1.number || 10;
@@ -56,13 +61,13 @@ const rest2 = {
 // rest1.number ? ? = 10;
 // rest2.number ? ? = 10;
 // rest2.miss = rest2.miss ? ? 'aaa';
-rest1.over = rest1.over && "abc";
-rest2.over = rest2.over && "abc";
+// rest1.over = rest1.over && "abc";
+// rest2.over = rest2.over && "abc";
 // rest1.over && = "abc";
 // rest2.over && = "abc";
 
-console.log(rest1);
-console.log(rest2);
+// console.log(rest1);
+// console.log(rest2);
 // Short Circuiting (&& and ||)
 // console.log("ddd" || 3);
 // console.log("" || "jonas ");
