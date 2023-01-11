@@ -47,6 +47,7 @@ const rest2 = {
     name: "b",
     miss: "c",
 };
+//Coding Challenge #1
 
 // rest1.number = rest1.number || 10;
 // rest2.number = rest2.number || 10;
