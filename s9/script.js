@@ -1,24 +1,27 @@
+const weekday = ["sat", "thu", "fri", "sun", "thi", "to"];
+const openingHour = {
+    [weekday[1]]: {
+        open: 12,
+        close: 22,
+    },
+    [weekday[2]]: {
+        open: 0,
+        close: 24,
+    },
+    [weekday[3]]: {
+        open: 2,
+        close: 20,
+    },
+};
+
 const restauraut = {
     name: "Classic Anio",
     location: "23th Itali",
     categories: ["A", "B", "C"],
     startMenu: ["Ga", "melon", "origin"],
     mainMenu: ["Piza", "Fish", "Meat"],
-    openingHour: {
-        thu: {
-            open: 12,
-            close: 22,
-        },
-        fri: {
-            open: 0,
-            close: 24,
-        },
-        sat: {
-            open: 2,
-            close: 20,
-        },
-    },
-    order: function(startIndex, mainIndex) {
+    openingHour,
+    openingHour: function(startIndex, mainIndex) {
         return [this.startMenu[startIndex], this.mainMenu[mainIndex]];
     },
     orderDelivery: function({ address, mainIndex, startMenu, time }) {
@@ -38,11 +41,13 @@ const restauraut = {
         console.log(otherabc);
     },
 };
+//
+console.log(restauraut);
 // Looping Arrays: The for-of Loop
-const arrM = [4, 3, 1, 2, 5];
-for (const item of arrM.entries()) {
-    console.log(item[0] + 1 + " : " + item[1]);
-}
+// const arrM = [4, 3, 1, 2, 5];
+// for (const item of arrM.entries()) {
+//     console.log(item[0] + 1 + " : " + item[1]);
+// }
 //Logical Assignment Operators
 // const rest1 = {
 //     name: "a",
