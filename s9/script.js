@@ -55,6 +55,37 @@ const restauraut = {
         console.log(otherabc);
     },
 };
+//Phương slice()thức này trả về các phần tử đã chọn trong một mảng, dưới dạng một mảng mới.
+
+// Phương slice()thức chọn từ một điểm bắt đầu nhất định, cho đến một điểm kết thúc (không bao gồm) đã cho .
+
+// Phương slice()thức này không thay đổi mảng ban đầu.
+const airPlace = "Air poleca aka";
+const plane = "A300";
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[2]);
+console.log(airPlace.slice(4));
+console.log(airPlace.slice(4, 7));
+console.log(airPlace.length);
+console.log("object".length);
+console.log(airPlace.indexOf("p"));
+console.log(airPlace.slice(0, airPlace.indexOf("")));
+console.log(airPlace.slice(-1));
+console.log(airPlace.slice(1, -1));
+const checkMid = (seat) => {
+    const s = seat.slice(-1);
+    if (s === "B" || s === "C") {
+        console.log("ok đấy");
+    } else {
+        console.log("bth thôi");
+    }
+};
+checkMid("11B");
+checkMid("11A");
+checkMid("11C");
+checkMid("11E");
+
 //Summary: Which Data Structure to Use?
 //array :
 //sử dụng khi cần đặt hàng,giá trị có thể lặp lại,sử dụng khi cần danh sách các giá trị thao tác dữ liệu
