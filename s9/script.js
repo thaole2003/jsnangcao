@@ -55,36 +55,70 @@ const restauraut = {
         console.log(otherabc);
     },
 };
+const airPlace = "Air poleca aka 200 aka";
+//. Working With Strings - Part 2
+console.log(airPlace.toUpperCase());
+console.log(airPlace.toLowerCase());
+const airPlace2 = "evisu";
+console.log(airPlace2.toUpperCase);
+console.log(airPlace2[0].toUpperCase() + airPlace2.slice(1));
+const email = "hel1@gmail.com";
+const midEmail = "  hel1@gmail.com \n";
+console.log(midEmail.toLowerCase());
+console.log(email == midEmail);
+console.log(midEmail.trim());
+console.log(email == midEmail.trim());
+const priceUE = "10,4*";
+const priceUS = priceUE.replace("*", "$").replace(",", ".");
+console.log(priceUE);
+console.log(priceUS);
+const airPlace3 = airPlace.replace("aka", "m4");
+
+console.log(airPlace3);
+const airPlace4 = airPlace.replace(/aka/g, "m4");
+console.log(airPlace4);
+const plane = "A300";
+console.log(plane.includes("A3"));
+console.log(plane.startsWith("A3"));
+const checkNAN = (item) => {
+    index = item.toLowerCase();
+    if (index.includes("knife") || index.includes("gun")) {
+        console.log("nguy hiem");
+    }
+};
+checkNAN("aa Knife");
+
+//. Working With Strings - Part 1
 //Phương slice()thức này trả về các phần tử đã chọn trong một mảng, dưới dạng một mảng mới.
 
 // Phương slice()thức chọn từ một điểm bắt đầu nhất định, cho đến một điểm kết thúc (không bao gồm) đã cho .
 
 // Phương slice()thức này không thay đổi mảng ban đầu.
-const airPlace = "Air poleca aka";
-const plane = "A300";
-console.log(plane[0]);
-console.log(plane[1]);
-console.log(plane[2]);
-console.log(airPlace.slice(4));
-console.log(airPlace.slice(4, 7));
-console.log(airPlace.length);
-console.log("object".length);
-console.log(airPlace.indexOf("p"));
-console.log(airPlace.slice(0, airPlace.indexOf("")));
-console.log(airPlace.slice(-1));
-console.log(airPlace.slice(1, -1));
-const checkMid = (seat) => {
-    const s = seat.slice(-1);
-    if (s === "B" || s === "C") {
-        console.log("ok đấy");
-    } else {
-        console.log("bth thôi");
-    }
-};
-checkMid("11B");
-checkMid("11A");
-checkMid("11C");
-checkMid("11E");
+
+// const plane = "A300";
+// console.log(plane[0]);
+// console.log(plane[1]);
+// console.log(plane[2]);
+// console.log(airPlace.slice(4));
+// console.log(airPlace.slice(4, 7));
+// console.log(airPlace.length);
+// console.log("object".length);
+// console.log(airPlace.indexOf("p"));
+// console.log(airPlace.slice(0, airPlace.indexOf("")));
+// console.log(airPlace.slice(-1));
+// console.log(airPlace.slice(1, -1));
+// const checkMid = (seat) => {
+//     const s = seat.slice(-1);
+//     if (s === "B" || s === "C") {
+//         console.log("ok đấy");
+//     } else {
+//         console.log("bth thôi");
+//     }
+// };
+// checkMid("11B");
+// checkMid("11A");
+// checkMid("11C");
+// checkMid("11E");
 
 //Summary: Which Data Structure to Use?
 //array :
