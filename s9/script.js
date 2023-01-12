@@ -55,6 +55,29 @@ const restauraut = {
         console.log(otherabc);
     },
 };
+//Maps: Iteration
+const question = new Map([
+    ["Question", "What is question"],
+    [1, "java"],
+    [2, "js"],
+    ["corret", 2],
+    [true, "correct"],
+    [false, "again"],
+]);
+console.log(question);
+const hourMap = new Map(Object.entries(restauraut.openingHour));
+console.log(hourMap);
+console.log(question.get("Question"));
+for (const [x, y] of question) {
+    if (typeof x === "number") {
+        console.log(`Anwser ${x} : ${y}`);
+    }
+}
+const answer = Number(prompt("@@@@"));
+// console.log(answer);
+console.log(question.get(question.get("corret") === answer));
+//convert map to array
+console.log([...question]);
 //Maps
 // new Map()	Creates a new Map object
 // set()	Sets the value for a key in a Map
@@ -66,22 +89,22 @@ const restauraut = {
 // entries()	Returns an iterator object with the [key, value] pairs in a Map
 // keys()	Returns an iterator object with the keys in a Map
 // values()	Returns an iterator object of the values in a Map
-const rest = new Map();
-rest
-    .set(1, "abc")
-    .set("name", "bca")
-    .set(true, "opened")
-    .set(false, "closed")
-    .set("open", 7)
-    .set("categori", ["Piza", "Fish", "Meat"])
-    .set(document.querySelector("h1"), "this is h1");
-console.log(rest.has(1));
-console.log(rest.get(true));
-const time = 21;
-console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
-rest.delete(1);
-console.log(rest);
-console.log(rest.size);
+// const rest = new Map();
+// rest
+//     .set(1, "abc")
+//     .set("name", "bca")
+//     .set(true, "opened")
+//     .set(false, "closed")
+//     .set("open", 7)
+//     .set("categori", ["Piza", "Fish", "Meat"])
+//     .set(document.querySelector("h1"), "this is h1");
+// console.log(rest.has(1));
+// console.log(rest.get(true));
+// const time = 21;
+// console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
+// rest.delete(1);
+// console.log(rest);
+// console.log(rest.size);
 //sets
 // new Set()	Creates a new Set
 // add()	Adds a new element to the Set
