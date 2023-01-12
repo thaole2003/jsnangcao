@@ -55,18 +55,33 @@ const restauraut = {
         console.log(otherabc);
     },
 };
-//Optional Chaining (?.)  trả về các giá trị pointer được nested hoặc undefined/null nếu không tồn tại.
-if (restauraut.openingHour && restauraut.openingHour.sat) {
-    console.log(restauraut.openingHour.sat.open);
+//Object.keys()thức tĩnh trả về một mảng gồm các tên thuộc tính có khóa chuỗi có thể đếm được của chính đối tượng đã cho.
+const property = Object.keys(restauraut.openingHour);
+let openhour = `mở cửa ${property.length}  ngày : `;
+console.log(property);
+for (const day of property) {
+    openhour += day + ",";
 }
-for (let day of day) {
-    const open = restauraut.openingHour.day ? .open;
-    console.log(open);
-}
-//method 
-console.log(restauraut.oder ? .(0, 1) ? ? 'Method does not exit');
-console.log(restauraut.oderaasf ? .(0, 1) ? ? 'Method does not exit');
+console.log(openhour);
 
+//Object.values()thức tĩnh trả về một mảng các giá trị thuộc tính khóa chuỗi có thể đếm được của chính một đối tượng nhất định.
+const value = Object.values(restauraut.openingHour);
+console.log(value);
+//Object.entries()thức tĩnh trả về một mảng gồm các cặp khóa-giá trị thuộc tính khóa chuỗi có thể đếm được của chính một đối tượng nhất định.
+const entries = Object.entries(restauraut.openingHour);
+console.log(entries);
+//Optional Chaining (?.)  trả về các giá trị pointer được nested hoặc undefined/null nếu không tồn tại.
+// if (restauraut.openingHour && restauraut.openingHour.sat) {
+//     console.log(restauraut.openingHour.sat.open);
+// }
+// for (let day of day) {
+//     const open = restauraut.openingHour.day ? .open;
+//     console.log(open);
+// }
+// //method
+// console.log(restauraut.oder ? .(0, 1) ? ? 'Method does not exit');
+// console.log(restauraut.oderaasf ? .(0, 1) ? ? 'Method does not exit');
+//array
 
 // console.log(restauraut);
 // Looping Arrays: The for-of Loop
