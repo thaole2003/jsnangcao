@@ -55,6 +55,27 @@ const restauraut = {
         console.log(otherabc);
     },
 };
+//sets
+// new Set()	Creates a new Set
+// add()	Adds a new element to the Set
+// delete()	Removes an element from a Set
+// has()	Returns true if a value exists
+// clear()	Removes all elements from a Set
+// forEach()	Invokes a callback for each element
+// values()	Returns an Iterator with all the values in a Set
+// keys()	Same as values()
+// entries()	Returns an Iterator with the [value,value] pairs from a Set
+const OderSet = new Set(["b", "a", "b", "c", "d"]);
+console.log(OderSet);
+console.log(new Set(["Abc"]));
+
+console.log(OderSet.size);
+console.log(OderSet.has("a"));
+console.log(OderSet.add("aa"));
+OderSet.delete("b");
+OderSet.clear();
+console.log(OderSet);
+
 //Object.keys()thức tĩnh trả về một mảng gồm các tên thuộc tính có khóa chuỗi có thể đếm được của chính đối tượng đã cho.
 // const property = Object.keys(restauraut.openingHour);
 // let openhour = `mở cửa ${property.length}  ngày : `;

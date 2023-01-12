@@ -85,9 +85,3 @@ for (const [x, y] of oddss) {
     const StrTeam = x === "x" ? "draw" : `victory ${game[x]}`;
     console.log(`Odd of  ${StrTeam} is ${y}`);
 }
-//3.1
-const scorers = Object.values(game.scored);
-constsr  = {}
-for (let [x, y] of scorers) {
-    
-}
