@@ -55,6 +55,33 @@ const restauraut = {
         console.log(otherabc);
     },
 };
+//Maps
+// new Map()	Creates a new Map object
+// set()	Sets the value for a key in a Map
+// get()	Gets the value for a key in a Map
+// clear()	Removes all the elements from a Map
+// delete()	Removes a Map element specified by a key
+// has()	Returns true if a key exists in a Map
+// forEach()	Invokes a callback for each key/value pair in a Map
+// entries()	Returns an iterator object with the [key, value] pairs in a Map
+// keys()	Returns an iterator object with the keys in a Map
+// values()	Returns an iterator object of the values in a Map
+const rest = new Map();
+rest
+    .set(1, "abc")
+    .set("name", "bca")
+    .set(true, "opened")
+    .set(false, "closed")
+    .set("open", 7)
+    .set("categori", ["Piza", "Fish", "Meat"])
+    .set(document.querySelector("h1"), "this is h1");
+console.log(rest.has(1));
+console.log(rest.get(true));
+const time = 21;
+console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
+rest.delete(1);
+console.log(rest);
+console.log(rest.size);
 //sets
 // new Set()	Creates a new Set
 // add()	Adds a new element to the Set
@@ -65,16 +92,16 @@ const restauraut = {
 // values()	Returns an Iterator with all the values in a Set
 // keys()	Same as values()
 // entries()	Returns an Iterator with the [value,value] pairs from a Set
-const OderSet = new Set(["b", "a", "b", "c", "d"]);
-console.log(OderSet);
-console.log(new Set(["Abc"]));
+// const OderSet = new Set(["b", "a", "b", "c", "d"]);
+// console.log(OderSet);
+// console.log(new Set(["Abc"]));
 
-console.log(OderSet.size);
-console.log(OderSet.has("a"));
-console.log(OderSet.add("aa"));
-OderSet.delete("b");
-OderSet.clear();
-console.log(OderSet);
+// console.log(OderSet.size);
+// console.log(OderSet.has("a"));
+// console.log(OderSet.add("aa"));
+// OderSet.delete("b");
+// OderSet.clear();
+// console.log(OderSet);
 
 //Object.keys()thức tĩnh trả về một mảng gồm các tên thuộc tính có khóa chuỗi có thể đếm được của chính đối tượng đã cho.
 // const property = Object.keys(restauraut.openingHour);
