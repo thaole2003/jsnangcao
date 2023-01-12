@@ -55,29 +55,45 @@ const restauraut = {
         console.log(otherabc);
     },
 };
+//Summary: Which Data Structure to Use?
+//array :
+//sử dụng khi cần đặt hàng,giá trị có thể lặp lại,sử dụng khi cần danh sách các giá trị thao tác dữ liệu
+//set:
+//sử dụng khi cần làm vc với các giá trị duy nhất,sử dụng để loại bỏ các bản sao ra khỏi mảng
+//object
+//viết và truy cập dễ dàng hơn với . và []
+//sử dụng khi cần khi báo hàm
+//dùng khi làm vc với json
+//map
+//hiệu suất tốt hơn
+//từ khóa có thể là tất cả các kiểu dữ liệu
+//dễ lặp lại
+//sử dụng khi các phím kp là chuỗi
+//dễ tính kích thước
+
 //Maps: Iteration
-const question = new Map([
-    ["Question", "What is question"],
-    [1, "java"],
-    [2, "js"],
-    ["corret", 2],
-    [true, "correct"],
-    [false, "again"],
-]);
-console.log(question);
-const hourMap = new Map(Object.entries(restauraut.openingHour));
-console.log(hourMap);
-console.log(question.get("Question"));
-for (const [x, y] of question) {
-    if (typeof x === "number") {
-        console.log(`Anwser ${x} : ${y}`);
-    }
-}
-const answer = Number(prompt("@@@@"));
-// console.log(answer);
-console.log(question.get(question.get("corret") === answer));
-//convert map to array
-console.log([...question]);
+// const question = new Map([
+//     ["Question", "What is question"],
+//     [1, "java"],
+//     [2, "js"],
+//     ["corret", 2],
+//     [true, "correct"],
+//     [false, "again"],
+// ]);
+// console.log(question);
+// const hourMap = new Map(Object.entries(restauraut.openingHour));
+// console.log(hourMap);
+// console.log(question.get("Question"));
+// for (const [x, y] of question) {
+//     if (typeof x === "number") {
+//         console.log(`Anwser ${x} : ${y}`);
+//     }
+// }
+// const answer = Number(prompt("@@@@"));
+// // console.log(answer);
+// console.log(question.get(question.get("corret") === answer));
+// //convert map to array
+// console.log([...question]);
 //Maps
 // new Map()	Creates a new Map object
 // set()	Sets the value for a key in a Map
