@@ -56,37 +56,66 @@ const restauraut = {
     },
 };
 const airPlace = "Air poleca aka 200 aka";
-//. Working With Strings - Part 2
-console.log(airPlace.toUpperCase());
-console.log(airPlace.toLowerCase());
-const airPlace2 = "evisu";
-console.log(airPlace2.toUpperCase);
-console.log(airPlace2[0].toUpperCase() + airPlace2.slice(1));
-const email = "hel1@gmail.com";
-const midEmail = "  hel1@gmail.com \n";
-console.log(midEmail.toLowerCase());
-console.log(email == midEmail);
-console.log(midEmail.trim());
-console.log(email == midEmail.trim());
-const priceUE = "10,4*";
-const priceUS = priceUE.replace("*", "$").replace(",", ".");
-console.log(priceUE);
-console.log(priceUS);
-const airPlace3 = airPlace.replace("aka", "m4");
+//
+//. Working With Strings - Part 3
+//Phương split()thức chia một chuỗi thành một mảng các chuỗi con.
 
-console.log(airPlace3);
-const airPlace4 = airPlace.replace(/aka/g, "m4");
-console.log(airPlace4);
-const plane = "A300";
-console.log(plane.includes("A3"));
-console.log(plane.startsWith("A3"));
-const checkNAN = (item) => {
-    index = item.toLowerCase();
-    if (index.includes("knife") || index.includes("gun")) {
-        console.log("nguy hiem");
-    }
-};
-checkNAN("aa Knife");
+// Phương split()thức trả về mảng mới.
+
+// Phương split()thức này không thay đổi chuỗi gốc.
+// console.log("a + b + c".split("+"));
+// const [x, y] = ["miss grand".split(" ")];
+// console.log(x, y);
+// //Phương join()thức tạo và trả về một chuỗi mới bằng cách nối tất cả các phần tử trong một mảng (hoặc một đối tượng giống như mảng ), được phân tách bằng dấu phẩy hoặc một chuỗi phân cách đã chỉ định. Nếu mảng chỉ có một mục, thì mục đó sẽ được trả về mà không sử dụng dấu tách.
+// // console.log([x, y].join());
+// const newName = ["Mr", x, y].join(" ");
+// console.log(newName);
+// const capializename = (name) => {
+//     const names = name.split(" ");
+//     const namesUper = [];
+//     for (n of names) {
+//         namesUper.push(n[0].toUpperCase() + n.slice(1));
+//     }
+//     console.log(namesUper.join(" "));
+// };
+// capializename("jessiac ann smith davis");
+// capializename("jonas schmedtmann");
+// const messger = "go to gate 23";
+// //Phương padStart()thức đệm chuỗi hiện tại bằng một chuỗi khác (nhiều lần, nếu cần) cho đến khi chuỗi kết quả đạt đến độ dài nhất định. Phần đệm được áp dụng từ đầu chuỗi hiện tại.
+// console.log(messger.padStart(20, "+").padEnd(30, "+"));
+// console.log("jonas".padStart(20, "+").padEnd(30, "+"));
+// const newName = ['Mr',]
+//. Working With Strings - Part 2
+// console.log(airPlace.toUpperCase());
+// console.log(airPlace.toLowerCase());
+// const airPlace2 = "evisu";
+// console.log(airPlace2.toUpperCase);
+// console.log(airPlace2[0].toUpperCase() + airPlace2.slice(1));
+// const email = "hel1@gmail.com";
+// const midEmail = "  hel1@gmail.com \n";
+// console.log(midEmail.toLowerCase());
+// console.log(email == midEmail);
+// console.log(midEmail.trim());
+// console.log(email == midEmail.trim());
+// const priceUE = "10,4*";
+// const priceUS = priceUE.replace("*", "$").replace(",", ".");
+// console.log(priceUE);
+// console.log(priceUS);
+// const airPlace3 = airPlace.replace("aka", "m4");
+
+// console.log(airPlace3);
+// const airPlace4 = airPlace.replace(/aka/g, "m4");
+// console.log(airPlace4);
+// const plane = "A300";
+// console.log(plane.includes("A3"));
+// console.log(plane.startsWith("A3"));
+// const checkNAN = (item) => {
+//     index = item.toLowerCase();
+//     if (index.includes("knife") || index.includes("gun")) {
+//         console.log("nguy hiem");
+//     }
+// };
+// checkNAN("aa Knife");
 
 //. Working With Strings - Part 1
 //Phương slice()thức này trả về các phần tử đã chọn trong một mảng, dưới dạng một mảng mới.
