@@ -44,3 +44,7 @@ const newPassport = function(person) {
 newPassport(jonas);
 checkIn(flight, jonas);
 // console.log(jonas);
+//First-class function
+//First-class function hay còn gọi là chức năng hạng nhất, dịch ra như vậy cho nó đúng việc dịch thuật thôi chứ chẳng có ý nghĩa gì cả. Đừng cố hiểu kỹ, vì bạn ngày nào chả thực hiện việc đó. 3 đặc điểm cần nhớ khi nói đến First class function đó chính là: Gán một biến cho một hàm
+//higher-order functions
+// Higher order functions là hàm hoạt động trên các hàm khác , bằng cách lấy chúng làm tham số hoặc trả về chúng. Nói một cách đơn giản, một Higher-Order function là hàm nhận một hàm dưới dạng đối số hoặc trả về hàm dưới dạng đầu ra. Ví dụ, Array. prototype.
