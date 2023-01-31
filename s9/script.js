@@ -56,6 +56,18 @@ const restauraut = {
     },
 };
 const airPlace = "Air poleca aka 200 aka";
+const flights =
+    "_Delayed_depaal;fao9873721;txt13141411;11:25 +_Arival;bru9873721fag13141411;11:45+_Delayed_Area;sad9873721;fff13141411;12:05";
+//Working With Strings - Part 4
+const getCode = (str) => str.slice(0, 3).toUpperCase();
+for (const flight of flights.split("+")) {
+    const [type, from, to, time] = flight.split(";");
+    const output = `${type.startsWith("_Delayed") ? "🫀" : ""}${type.replaceAll(
+    "_",
+    ""
+  )}${getCode(from)}${getCode(to)}(${time.replace(":", "h")})`.padStart(36);
+    console.log(output);
+}
 //
 //. Working With Strings - Part 3
 //Phương split()thức chia một chuỗi thành một mảng các chuỗi con.
