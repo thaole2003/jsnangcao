@@ -71,14 +71,29 @@
 // document.body.addEventListener("click", hight5);
 // ["jonas", "martha", "adam"].forEach(hight5);
 //132. Functions Returning Functions
-const greet = (greeting) => {
-    return function(name) {
-        console.log(`${greeting} ${name}`);
-    };
+// const greet = (greeting) => {
+//     return function(name) {
+//         console.log(`${greeting} ${name}`);
+//     };
+// };
+// const heyyou = greet("hey");
+// heyyou("babe");
+// greet("chào")("em zai");
+// //challenge
+// const greeArr = (greet) => (name) => console.log(`${greet} ${name}`);
+// greeArr("chào")("cu");
+// Immediately Invoked Function Expressions (IIFE)
+const runOne = () => {
+    console.log("run 1");
 };
-const heyyou = greet("hey");
-heyyou("babe");
-greet("chào")("em zai");
-//challenge
-const greeArr = (greet) => (name) => console.log(`${greet} ${name}`);
-greeArr("chào")("cu");
+runOne();
+// IIFE
+(function() {
+    console.log("run 1");
+    const isprivate = 23;
+})();
+(() => console.log("run1"))(); {
+    const isprivate = 23;
+    var NOTsprivate = 23;
+}
+console.log(NOTsprivate);
