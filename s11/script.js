@@ -18,10 +18,27 @@
 // console.log(arr.concat(arr2));
 // console.log(arr.join("-"));
 //143:The new at Method
-const arr = [12, 122, 33];
-console.log(arr[0]);
-console.log(arr.at(0));
+// const arr = [12, 122, 33];
+// console.log(arr[0]);
+// console.log(arr.at(0));
 //get last array element
-console.log(arr[arr.length - 1]);
-console.log(arr.slice((-1)[0]));
-console.log(arr.at(-1));
+// console.log(arr[arr.length - 1]);
+// console.log(arr.slice((-1)[0]));
+// console.log(arr.at(-1));
+//144:Looping Arrays: forEach
+// Math. abs() được sử dụng để tính giá trị tuyệt đối của một số.
+const movement = [100, 150, -200, 300, -400, -600, 700];
+for (const [i, movements] of movement.entries()) {
+    if (movements > 0) {
+        console.log(`aaa ${i} : ${movements}`);
+    } else {
+        console.log(`bbb ${i} : ${Math.abs(movements)}`);
+    }
+}
+movement.forEach(function(movements, i, arr) {
+    if (movements > 0) {
+        console.log(`aaa ${i} ${movements}`);
+    } else {
+        console.log(`bbb ${i} ${Math.abs(movements)}`);
+    }
+});
