@@ -27,18 +27,34 @@
 // console.log(arr.at(-1));
 //144:Looping Arrays: forEach
 // Math. abs() được sử dụng để tính giá trị tuyệt đối của một số.
-const movement = [100, 150, -200, 300, -400, -600, 700];
-for (const [i, movements] of movement.entries()) {
-    if (movements > 0) {
-        console.log(`aaa ${i} : ${movements}`);
-    } else {
-        console.log(`bbb ${i} : ${Math.abs(movements)}`);
-    }
-}
-movement.forEach(function(movements, i, arr) {
-    if (movements > 0) {
-        console.log(`aaa ${i} ${movements}`);
-    } else {
-        console.log(`bbb ${i} ${Math.abs(movements)}`);
-    }
+// const movement = [100, 150, -200, 300, -400, -600, 700];
+// for (const [i, movements] of movement.entries()) {
+//     if (movements > 0) {
+//         console.log(`aaa ${i} : ${movements}`);
+//     } else {
+//         console.log(`bbb ${i} : ${Math.abs(movements)}`);
+//     }
+// }
+// movement.forEach(function(movements, i, arr) {
+//     if (movements > 0) {
+//         console.log(`aaa ${i} ${movements}`);
+//     } else {
+//         console.log(`bbb ${i} ${Math.abs(movements)}`);
+//     }
+// });
+// 145: foreact with map and sets
+//Set trong JavaScript là một loại object dùng để lưu trữ dữ liệu mà không trùng lặp.
+// Map trong JavaScript là một loại object cho phép lưu trữ dữ liệu theo kiểu key-value
+const current = new Map([
+    ["usd", "united states dollar"],
+    ["eur", "euro"],
+    ["gbt", "pot sterlng"],
+]);
+current.forEach(function(index, value) {
+    console.log(`${index} : ${value}}`);
+});
+const currrentrra = new Set(["a", "b", "c", "a", "d"]);
+console.log(currrentrra);
+currrentrra.forEach(function(value, key, map) {
+    console.log(`${value}: ${key} ${map}}`);
 });
