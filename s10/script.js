@@ -50,23 +50,35 @@
 //higher-order functions
 // Higher order functions là hàm hoạt động trên các hàm khác , bằng cách lấy chúng làm tham số hoặc trả về chúng. Nói một cách đơn giản, một Higher-Order function là hàm nhận một hàm dưới dạng đối số hoặc trả về hàm dưới dạng đầu ra. Ví dụ, Array. prototype.
 //131:Functions Accepting Callback Functions
-const oneWord = function(str) {
-    return str.replace(/ /g, "").toLowerCase();
+// const oneWord = function(str) {
+//     return str.replace(/ /g, "").toLowerCase();
+// };
+// const upperFirstWord = function(str) {
+//     const [first, ...others] = str.split(" ");
+//     return [first.toUpperCase(), others].join(" ");
+// };
+// // console.log(upperFirstWord("a b c"));
+// const tranformer = function(str, fn) {
+//     console.log(`Origannal string ${str}`);
+//     console.log(`tranformer string ${fn(str)}`);
+//     console.log(`tranformer string ${fn.name}`);
+// };
+// tranformer("jafoa fkan", oneWord);
+// tranformer("jafoa fkan", upperFirstWord);
+// const hight5 = () => {
+//     console.log("👅");
+// };
+// document.body.addEventListener("click", hight5);
+// ["jonas", "martha", "adam"].forEach(hight5);
+//132. Functions Returning Functions
+const greet = (greeting) => {
+    return function(name) {
+        console.log(`${greeting} ${name}`);
+    };
 };
-const upperFirstWord = function(str) {
-    const [first, ...others] = str.split(" ");
-    return [first.toUpperCase(), others].join(" ");
-};
-// console.log(upperFirstWord("a b c"));
-const tranformer = function(str, fn) {
-    console.log(`Origannal string ${str}`);
-    console.log(`tranformer string ${fn(str)}`);
-    console.log(`tranformer string ${fn.name}`);
-};
-tranformer("jafoa fkan", oneWord);
-tranformer("jafoa fkan", upperFirstWord);
-const hight5 = () => {
-    console.log("👅");
-};
-document.body.addEventListener("click", hight5);
-["jonas", "martha", "adam"].forEach(hight5);
+const heyyou = greet("hey");
+heyyou("babe");
+greet("chào")("em zai");
+//challenge
+const greeArr = (greet) => (name) => console.log(`${greet} ${name}`);
+greeArr("chào")("cu");
