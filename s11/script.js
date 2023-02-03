@@ -73,9 +73,20 @@ const eurToUsd = 1.1;
 //     arrayY.push(alo * eurToUsd);
 // }
 // console.log(arrayY);
-const a = movement.map((value, index) => {
-    return (
-        "aaa : " + `${index + 1}: ${value > 0 ? value : "bbb" + Math.abs(value)}`
-    );
-});
-console.log(a);
+// const a = movement.map((value, index) => {
+//   return (
+//     "aaa : " + `${index + 1}: ${value > 0 ? value : "bbb" + Math.abs(value)}`
+//   );
+// });
+// console.log(a);
+const aaaa = (namee) => {
+    return namee
+        .toUpperCase()
+        .split(" ")
+        .map((nameee) => nameee[0])
+        .join("");
+};
+
+// const myname = namee.slice();
+
+console.log(aaaa("aaa bbb ccc"));
