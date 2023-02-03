@@ -45,16 +45,16 @@
 // 145: foreact with map and sets
 //Set trong JavaScript là một loại object dùng để lưu trữ dữ liệu mà không trùng lặp.
 // Map trong JavaScript là một loại object cho phép lưu trữ dữ liệu theo kiểu key-value
-const current = new Map([
-    ["usd", "united states dollar"],
-    ["eur", "euro"],
-    ["gbt", "pot sterlng"],
-]);
-current.forEach(function(index, value) {
-    console.log(`${index} : ${value}}`);
-});
-const currrentrra = new Set(["a", "b", "c", "a", "d"]);
-console.log(currrentrra);
-currrentrra.forEach(function(value, key, map) {
-    console.log(`${value}: ${key} ${map}}`);
-});
+// const current = new Map([
+//     ["usd", "united states dollar"],
+//     ["eur", "euro"],
+//     ["gbt", "pot sterlng"],
+// ]);
+// current.forEach(function(index, value) {
+//     console.log(`${index} : ${value}}`);
+// });
+// const currrentrra = new Set(["a", "b", "c", "a", "d"]);
+// console.log(currrentrra);
+// currrentrra.forEach(function(value, key, map) {
+//     console.log(`${value}: ${key} ${map}}`);
+// });
