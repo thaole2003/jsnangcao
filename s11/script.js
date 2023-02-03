@@ -79,14 +79,22 @@ const eurToUsd = 1.1;
 //   );
 // });
 // console.log(a);
-const aaaa = (namee) => {
-    return namee
-        .toUpperCase()
-        .split(" ")
-        .map((nameee) => nameee[0])
-        .join("");
-};
+// const aaaa = (namee) => {
+//     return namee
+//         .toUpperCase()
+//         .split(" ")
+//         .map((nameee) => nameee[0])
+//         .join("");
+// };
 
-// const myname = namee.slice();
+// // const myname = namee.slice();
 
-console.log(aaaa("aaa bbb ccc"));
+// console.log(aaaa("aaa bbb ccc"));
+const aa = movement.filter((a) => {
+    return a > 0;
+});
+console.log(aa);
+const bb = movement.filter((a) => {
+    return a < 0;
+});
+console.log(bb);
