@@ -58,3 +58,7 @@
 // currrentrra.forEach(function(value, key, map) {
 //     console.log(`${value}: ${key} ${map}}`);
 // });
+//map,filter,reduce
+//map trả về 1 mảng mới chứa kết quả của việc áp dụng 1 thao tác trên tất cả các phần tử mảng ban đầu
+//filter trả về 1 mảng mới chứa các phần tử hỏa mãn 1 đkien đc chỉ định
+//reduce giảm tất cả các phần tử mảng xuống 1 giá trị duy nhất(ví dụ cộng tất cả các phần tử lại với nhau)
