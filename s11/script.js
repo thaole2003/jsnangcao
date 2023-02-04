@@ -98,23 +98,34 @@ const eurToUsd = 1.1;
 //     return a < 0;
 // });
 // console.log(bb);
+// console.log(movement);
+// const blace = movement.reduce((acc, cur, i, arr) => {
+//     // console.log(i, acc);
+//     // console.log(i, cur);
+//     return acc + cur;
+// }, 100);
+// console.log(blace);
+// var blace2 = 0;
+// for (const aa of movement) {
+//     blace2 += aa;
+//     console.log(blace2);
+// }
+// const max = movement.reduce((acc, mov) => {
+//     if (acc > mov) {
+//         return acc;
+//     } else {
+//         return mov;
+//     }
+// }, movement[0]);
+// console.log(max);
+const eurToUsdd = 1.2;
 console.log(movement);
-const blace = movement.reduce((acc, cur, i, arr) => {
-    // console.log(i, acc);
-    // console.log(i, cur);
-    return acc + cur;
-}, 100);
-console.log(blace);
-var blace2 = 0;
-for (const aa of movement) {
-    blace2 += aa;
-    console.log(blace2);
-}
-const max = movement.reduce((acc, mov) => {
-    if (acc > mov) {
-        return acc;
-    } else {
-        return mov;
-    }
-}, movement[0]);
-console.log(max);
+const a = movement
+    .filter((mov) => mov > 0)
+    .map((aaaa, i, arr) => {
+        return aaaa * eurToUsd;
+    })
+    .reduce((acc, mov) => {
+        return acc + mov;
+    }, 0);
+console.log(a);
