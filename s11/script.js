@@ -118,14 +118,23 @@ const eurToUsd = 1.1;
 //     }
 // }, movement[0]);
 // console.log(max);
-const eurToUsdd = 1.2;
-console.log(movement);
-const a = movement
-    .filter((mov) => mov > 0)
-    .map((aaaa, i, arr) => {
-        return aaaa * eurToUsd;
-    })
-    .reduce((acc, mov) => {
-        return acc + mov;
-    }, 0);
-console.log(a);
+// const eurToUsdd = 1.2;
+// console.log(movement);
+// const a = movement
+//     .filter((mov) => mov > 0)
+//     .map((aaaa, i, arr) => {
+//         return aaaa * eurToUsd;
+//     })
+//     .reduce((acc, mov) => {
+//         return acc + mov;
+//     }, 0);
+// console.log(a);
+const aveHUmeAa = (ages) => {
+    ages
+        .map((age) => (age <= 2 ? 2 * age : 16 + age * 4))
+        .fiter((age) => age >= 18)
+        .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+};
+// console.log();
+const abc = aveHUmeAa[(5, 2, 4, 1, 15, 8, 3)];
+console.log(abc);
