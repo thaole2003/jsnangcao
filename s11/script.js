@@ -64,6 +64,31 @@
 //reduce giảm tất cả các phần tử mảng xuống 1 giá trị duy nhất(ví dụ cộng tất cả các phần tử lại với nhau)
 const movement = [200, 450, -400, 3000, -500, -130, 70, 1300];
 const eurToUsd = 1.1;
+const acout1 = {
+    owner: "le ee",
+    movement: [200, 3444, 204, -900, 500],
+    interResRate: 0.7,
+    pin: 2222,
+};
+const acout2 = {
+    owner: "le thao",
+    movement: [200, 3444, 204, -300, 500],
+    interResRate: 1.1,
+    pin: 544,
+};
+const acout3 = {
+    owner: "le a",
+    movement: [800, 44, 204, -600, 500],
+    interResRate: 0.7,
+    pin: 111,
+};
+const acout4 = {
+    owner: "le b",
+    movement: [100, 344, 204, -900, 500],
+    interResRate: 0.7,
+    pin: 2223,
+};
+const acout = [acout1, acout2, acout3, acout4];
 // const movementMap = movement.map(function(value) {
 //     return value * eurToUsd;
 // });
@@ -185,14 +210,45 @@ const eurToUsd = 1.1;
 // console.log(movement);
 // movement.sort((a, b) => a - b);
 // console.log(movement);
-const ab = [1, 2, 3, 4, 5, 6];
-const abc = new Array([1, 2, 3, 4, 5, 6]);
-console.log(abc.entries());
-const bcc = Array(7);
-console.log(bcc);
-bcc.fill(5, 3, 6);
-console.log(bcc);
-bcc.fill(1);
-console.log(bcc);
-const y = new Array.from({ length: 7 }, (_, i) => i + 1);
-console.log(y);
+// const ab = [1, 2, 3, 4, 5, 6];
+// const abc = new Array([1, 2, 3, 4, 5, 6]);
+// console.log(abc.entries());
+// const bcc = Array(7);
+// console.log(bcc);
+// bcc.fill(5, 3, 6);
+// console.log(bcc);
+// bcc.fill(1);
+// console.log(bcc);
+// const y = new Array.from({ length: 7 }, (_, i) => i + 1);
+// console.log(y);
+const bankDespson = acout
+    .flatMap((acc) => acc.movement)
+    .filter((mov) => mov > 0)
+    .reduce((a, b) => a + b, 0);
+console.log(bankDespson);
+const bankDespson1 = acout
+    .flatMap((acc) => acc.movement)
+    // .filter((mov) => mov > 0)
+    .reduce((a, b) => (a >= 1000 ? b++ : b), 0);
+console.log(bankDespson1);
+const { a, b } = acout
+    .flatMap((acc) => acc.movement)
+    .reduce(
+        (sums, cur) => {
+            sums[cur > 0 ? "a" : "b"] += cur;
+            return sums;
+        }, {
+            a: 0,
+            b: 0,
+        }
+    );
+console.log(a, b);
+const convertTitleCase = function(title) {
+    const expec = ["a", "an", "or", "the", "but", "on", "in", "with"];
+    const tittleCase = title
+        .toLowerCase()
+        .split(" ")
+        .map((word) => word[0].toUpperCase() + word.slice(1));
+    return tittleCase;
+};
+console.log(convertTitleCase(" this is a b c"));
