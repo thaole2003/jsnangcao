@@ -164,24 +164,35 @@ const eurToUsd = 1.1;
 // ];
 // console.log(errey1.flat(2));
 // console.log(errey1.flatMap((A) => A * 2, ));
-const irriy = ["adam", "ricky", "john", "hucky"];
-console.log(irriy.sort());
-console.log(movement);
-movement.sort((a, b) => {
-    if (a > b) {
-        return 1;
-    } else {
-        return -1;
-    }
-});
-console.log(movement);
-movement.sort((a, b) => {
-    if (a > b) {
-        return -1;
-    } else {
-        return 1;
-    }
-});
-console.log(movement);
-movement.sort((a, b) => a - b);
-console.log(movement);
+// const irriy = ["adam", "ricky", "john", "hucky"];
+// console.log(irriy.sort());
+// console.log(movement);
+// movement.sort((a, b) => {
+//     if (a > b) {
+//         return 1;
+//     } else {
+//         return -1;
+//     }
+// });
+// console.log(movement);
+// movement.sort((a, b) => {
+//     if (a > b) {
+//         return -1;
+//     } else {
+//         return 1;
+//     }
+// });
+// console.log(movement);
+// movement.sort((a, b) => a - b);
+// console.log(movement);
+const ab = [1, 2, 3, 4, 5, 6];
+const abc = new Array([1, 2, 3, 4, 5, 6]);
+console.log(abc.entries());
+const bcc = Array(7);
+console.log(bcc);
+bcc.fill(5, 3, 6);
+console.log(bcc);
+bcc.fill(1);
+console.log(bcc);
+const y = new Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(y);
