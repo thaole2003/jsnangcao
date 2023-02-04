@@ -129,12 +129,17 @@ const eurToUsd = 1.1;
 //         return acc + mov;
 //     }, 0);
 // console.log(a);
-const aveHUmeAa = (ages) => {
-    ages
-        .map((age) => (age <= 2 ? 2 * age : 16 + age * 4))
-        .fiter((age) => age >= 18)
-        .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
-};
-// console.log();
-const abc = aveHUmeAa[(5, 2, 4, 1, 15, 8, 3)];
-console.log(abc);
+// const aveHUmeAa = (ages) => {
+//     ages
+//         .map((age) => (age <= 2 ? 2 * age : 16 + age * 4))
+//         .fiter((age) => age >= 18)
+//         .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+// };
+// // console.log();
+// const abc = aveHUmeAa[(5, 2, 4, 1, 15, 8, 3)];
+// console.log(abc);
+console.log(movement);
+const a = movement.find((aa) => {
+    return aa < 0;
+});
+console.log(a);
