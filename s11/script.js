@@ -144,6 +144,12 @@ const eurToUsd = 1.1;
 // });
 // console.log(a);
 //findIndex() là một phương thức của mảng trong JavaScript, nó trả về chỉ mục đầu tiên mà phần tử đạt điều kiện trong hàm callback. Nếu không tìm thấy phần tử nào thỏa mãn, nó trả về giá trị -1.
-const arr1 = [10, 11, 2, 6, 14];
-const a = arr1.findIndex((a) => a > 10);
-console.log(a);
+// const arr1 = [10, 11, 2, 6, 14];
+// const a = arr1.findIndex((a) => a > 10);
+// console.log(a);
+//some() trả về true nếu ít nhất một phần tử trong mảng thỏa mãn điều kiện trong hàm callback, trả về false nếu không tìm thấy phần tử nào thỏa mãn.
+// every() trả về true nếu tất cả các phần tử trong mảng thỏa mãn điều kiện trong hàm callback, trả về false nếu ít nhất một phần tử không thỏa mãn.
+console.log(movement);
+console.log(movement.includes(-500));
+console.log(movement.some((a) => a >= -500 && a < 4000));
+console.log(movement.every((a) => a < 0));
