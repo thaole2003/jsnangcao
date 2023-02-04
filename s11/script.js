@@ -90,11 +90,31 @@ const eurToUsd = 1.1;
 // // const myname = namee.slice();
 
 // console.log(aaaa("aaa bbb ccc"));
-const aa = movement.filter((a) => {
-    return a > 0;
-});
-console.log(aa);
-const bb = movement.filter((a) => {
-    return a < 0;
-});
-console.log(bb);
+// const aa = movement.filter((a) => {
+//     return a > 0;
+// });
+// console.log(aa);
+// const bb = movement.filter((a) => {
+//     return a < 0;
+// });
+// console.log(bb);
+console.log(movement);
+const blace = movement.reduce((acc, cur, i, arr) => {
+    // console.log(i, acc);
+    // console.log(i, cur);
+    return acc + cur;
+}, 100);
+console.log(blace);
+var blace2 = 0;
+for (const aa of movement) {
+    blace2 += aa;
+    console.log(blace2);
+}
+const max = movement.reduce((acc, mov) => {
+    if (acc > mov) {
+        return acc;
+    } else {
+        return mov;
+    }
+}, movement[0]);
+console.log(max);
