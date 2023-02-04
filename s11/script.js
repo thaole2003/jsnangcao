@@ -138,8 +138,12 @@ const eurToUsd = 1.1;
 // // console.log();
 // const abc = aveHUmeAa[(5, 2, 4, 1, 15, 8, 3)];
 // console.log(abc);
-console.log(movement);
-const a = movement.find((aa) => {
-    return aa < 0;
-});
+// console.log(movement);
+// const a = movement.find((aa) => {
+//     return aa < 0;
+// });
+// console.log(a);
+//findIndex() là một phương thức của mảng trong JavaScript, nó trả về chỉ mục đầu tiên mà phần tử đạt điều kiện trong hàm callback. Nếu không tìm thấy phần tử nào thỏa mãn, nó trả về giá trị -1.
+const arr1 = [10, 11, 2, 6, 14];
+const a = arr1.findIndex((a) => a > 10);
 console.log(a);
