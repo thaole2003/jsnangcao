@@ -155,12 +155,33 @@ const eurToUsd = 1.1;
 // console.log(movement.every((a) => a < 0));
 //flat() trả về một mảng mới với tất cả các phần tử của mảng con trải nghiệm theo mức sắp xếp theo từng tầng. Bạn có thể truyền vào tham số mức để xác định số lượng tầng cần trải nghiệm.
 //flatMap() tương tự như Array.prototype.flat(), nó trả về một mảng mới với tất cả các phần tử của mảng con trải nghiệm theo mức sắp xếp theo từng tầng. Nhưng nó còn giúp bạn chuyển đổi từng phần tử trước khi trải nghiệm.
-const errey = [1, 2, [3, 4],
-    [5, 6], 8
-];
-console.log(errey.flat());
-const errey1 = [1, 2, [3, 4, [7, 9]],
-    [5, 6], 8
-];
-console.log(errey1.flat(2));
-console.log(errey1.flatMap((A) => A * 2, 2));
+// const errey = [1, 2, [3, 4],
+//     [5, 6], 8
+// ];
+// console.log(errey.flat());
+// const errey1 = [1, 2, [3, 4, [7, 9]],
+//     [5, 6], 8
+// ];
+// console.log(errey1.flat(2));
+// console.log(errey1.flatMap((A) => A * 2, ));
+const irriy = ["adam", "ricky", "john", "hucky"];
+console.log(irriy.sort());
+console.log(movement);
+movement.sort((a, b) => {
+    if (a > b) {
+        return 1;
+    } else {
+        return -1;
+    }
+});
+console.log(movement);
+movement.sort((a, b) => {
+    if (a > b) {
+        return -1;
+    } else {
+        return 1;
+    }
+});
+console.log(movement);
+movement.sort((a, b) => a - b);
+console.log(movement);
