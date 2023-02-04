@@ -149,7 +149,18 @@ const eurToUsd = 1.1;
 // console.log(a);
 //some() trả về true nếu ít nhất một phần tử trong mảng thỏa mãn điều kiện trong hàm callback, trả về false nếu không tìm thấy phần tử nào thỏa mãn.
 // every() trả về true nếu tất cả các phần tử trong mảng thỏa mãn điều kiện trong hàm callback, trả về false nếu ít nhất một phần tử không thỏa mãn.
-console.log(movement);
-console.log(movement.includes(-500));
-console.log(movement.some((a) => a >= -500 && a < 4000));
-console.log(movement.every((a) => a < 0));
+// console.log(movement);
+// console.log(movement.includes(-500));
+// console.log(movement.some((a) => a >= -500 && a < 4000));
+// console.log(movement.every((a) => a < 0));
+//flat() trả về một mảng mới với tất cả các phần tử của mảng con trải nghiệm theo mức sắp xếp theo từng tầng. Bạn có thể truyền vào tham số mức để xác định số lượng tầng cần trải nghiệm.
+//flatMap() tương tự như Array.prototype.flat(), nó trả về một mảng mới với tất cả các phần tử của mảng con trải nghiệm theo mức sắp xếp theo từng tầng. Nhưng nó còn giúp bạn chuyển đổi từng phần tử trước khi trải nghiệm.
+const errey = [1, 2, [3, 4],
+    [5, 6], 8
+];
+console.log(errey.flat());
+const errey1 = [1, 2, [3, 4, [7, 9]],
+    [5, 6], 8
+];
+console.log(errey1.flat(2));
+console.log(errey1.flatMap((A) => A * 2, 2));
