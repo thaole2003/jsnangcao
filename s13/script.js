@@ -41,3 +41,23 @@ logo.classList.add("c", "j");
 logo.classList.remove("c", "j");
 logo.classList.toggle("c");
 logo.classList.contains("c");
+///
+const btnScroll = document.querySelector("btn_scroll_to");
+const section1 = document.querySelector("#section_1");
+btnScroll.addEventListener("click", function() {
+    const s1cooords = section1.getBoundingClientRect();
+    console.log(s1cooords);
+    console.log(e.target.getBoundingClientRect());
+    console.log("current scroll", window.pageXOffset, pageYOffset);
+    console.log(
+        "heigh,withd viewport",
+        document.documentElement.clientHeight,
+        document.documentElement.clientWidth
+    );
+    window.scrollTo({
+        left: s1cooords.left + window.pageXOffset,
+        top: s1cooords.top + window.pageYOffset,
+        behavior: "smooth",
+    });
+    section1.scrollIntoView({ behavior: "smooth" });
+});
