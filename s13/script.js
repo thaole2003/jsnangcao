@@ -121,14 +121,29 @@
 //     }
 // });
 //tabled component
-const tabs = document.querySelectorAll(".openration_tab");
-const tabContainer = document.querySelector(".openration_tab_container");
-const tabContent = document.querySelector(".openration_content");
-tabContainer.addEventListener("click", function(e) {
-    const clicked = e.target.closest(".openration_tab");
-    console.log(clicked);
-});
-if (!clicked) return;
+// const tabs = document.querySelectorAll(".openration_tab");
+// const tabContainer = document.querySelector(".openration_tab_container");
+// const tabContent = document.querySelector(".openration_content");
+// tabContainer.addEventListener("click", function(e) {
+//     const clicked = e.target.closest(".openration_tab");
+//     console.log(clicked);
+// });
+// if (!clicked) return;
 
-tabs.forEach((t) => t.classList.remove("openration_tab_active"));
-clicked.classList.add("openration_tab_active");
+// tabs.forEach((t) => t.classList.remove("openration_tab_active"));
+// clicked.classList.add("openration_tab_active");
+const nav = document.querySelector("nav");
+
+function handel(e) {
+    if (e.target.classlist.contains("nav_link")) {
+        const link = e.target;
+        const siblings = link.closest(".nav").querySelectorAll(".nav_link");
+        const logo = link.closest(".nav").querySelectorAll("img");
+    }
+    siblings.forEach((el) => {
+        if (el !== link) el.style.opacity = 0.5;
+    });
+    logo.style.opacity = 0.5;
+}
+nav.addEventListener("mouseover", handel.bind(0.5));
+nav.addEventListener("mouseout", handel.bind(1));
