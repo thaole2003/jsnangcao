@@ -147,3 +147,8 @@
 // }
 // nav.addEventListener("mouseover", handel.bind(0.5));
 // nav.addEventListener("mouseout", handel.bind(1));
+window.addEventListener("scroll", () => {
+    console.log(window.scrollY);
+    if (window.scrollY > initiaCoords.top) nav.classlist.add("stiky");
+    else nav.classlist.remove("sticky");
+});
