@@ -70,20 +70,32 @@
 // //     alert("onmouseenter:great");
 // // };
 // setTimeout(() => h1.removeEventListener("mouseenter", alertH1), 3000);
-const ranDomInt = (min, max) =>
-    Math.floor(Math.random() * (max - min + 1) + min);
-const randomColor = () =>
-    `rgb(${ranDomInt(0, 255)},${ranDomInt(0, 255)},${ranDomInt(0, 255)})`;
-document.querySelector(".nav_link").addEventListener("click", function(e) {
-    this.style.backgroundColor = randomColor();
-    console.log("Link", e.target, e.currentTarget);
-    console.log(e.currentTarget === this);
-});
-document.querySelector(".nav_links").addEventListener("click", function(e) {
-    this.style.backgroundColor = randomColor();
-    console.log("Container", e.target, e.currentTarget);
-});
-document.querySelector(".nav").addEventListener("click", function(e) {
-    this.style.backgroundColor = randomColor();
-    console.log("Nav", e.target, e.currentTarget);
+// const ranDomInt = (min, max) =>
+//     Math.floor(Math.random() * (max - min + 1) + min);
+// const randomColor = () =>
+//     `rgb(${ranDomInt(0, 255)},${ranDomInt(0, 255)},${ranDomInt(0, 255)})`;
+// document.querySelector(".nav_link").addEventListener("click", function(e) {
+//     this.style.backgroundColor = randomColor();
+//     console.log("Link", e.target, e.currentTarget);
+//     console.log(e.currentTarget === this);
+// });
+// document.querySelector(".nav_links").addEventListener("click", function(e) {
+//     this.style.backgroundColor = randomColor();
+//     console.log("Container", e.target, e.currentTarget);
+// });
+// document.querySelector(".nav").addEventListener("click", function(e) {
+//     this.style.backgroundColor = randomColor();
+//     console.log("Nav", e.target, e.currentTarget);
+// });
+// page navigator
+document.querySelectorAll(".nav_link").forEach(function(el) {
+    el.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        if (e.target.classList.contains("nav_link")) {
+            const id = this.getAttribute("href");
+            console.log(id);
+            document.querySelector(id).scrollIntroView({ behavior: "smooth" });
+        }
+    });
 });
