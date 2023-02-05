@@ -21,3 +21,23 @@ document.querySelector(".btn_bt").addEventListener("click", function() {
     // messger.remove;
     messger.parentElement.removeChild(messger);
 });
+//style
+messger.style.backgroundColor = "#37383d";
+messger.style.width = "120%";
+console.log(messger.style.height);
+messger.style.height =
+    Number.parseFloat(getComputedStyle(messger).height, 10) + 30 + "px";
+document.documentElement.style.setProperty("--color-promary", "orangered");
+const logo = document.querySelector(".logo");
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.className);
+logo.alt = "beatiful minilasting lgo";
+console.log(logo.getAttribute("src"));
+//data atrributes
+console.log(logo.dataset.versionNumber);
+//classes
+logo.classList.add("c", "j");
+logo.classList.remove("c", "j");
+logo.classList.toggle("c");
+logo.classList.contains("c");
