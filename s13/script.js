@@ -88,14 +88,35 @@
 //     console.log("Nav", e.target, e.currentTarget);
 // });
 // page navigator
-document.querySelectorAll(".nav_link").forEach(function(el) {
-    el.addEventListener("click", (e) => {
-        e.preventDefault();
+// document.querySelectorAll(".nav_link").forEach(function(el) {
+//     el.addEventListener("click", (e) => {
+//         e.preventDefault();
 
-        if (e.target.classList.contains("nav_link")) {
-            const id = this.getAttribute("href");
-            console.log(id);
-            document.querySelector(id).scrollIntroView({ behavior: "smooth" });
-        }
-    });
+//         if (e.target.classList.contains("nav_link")) {
+//             const id = this.getAttribute("href");
+//             console.log(id);
+//             document.querySelector(id).scrollIntroView({ behavior: "smooth" });
+//         }
+//     });
+// });
+const h1 = document.querySelector("h1");
+console.log(h1.querySelectorAll("highlight"));
+console.log(h1.childNodes);
+console.log(h1.children);
+h1.firstElementChild.style.color = "black";
+h1.lastElementChild.style.color = "blue";
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+h1.closest(".header").style.background = "var (--geadient-secondary)";
+h1.closest("h1").style.background = "var (--geadient-secondary)";
+//going sideWays
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
+console.log(h1.previousSibling);
+console.log(h1.nextSibling);
+console.log(h1.parentElement.children);
+[...h1.parentElement.children].forEach(function(el) {
+    if (el !== h1) {
+        el.style.transfrom = "scale(0.5)";
+    }
 });
