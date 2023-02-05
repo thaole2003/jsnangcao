@@ -221,34 +221,34 @@ const acout = [acout1, acout2, acout3, acout4];
 // console.log(bcc);
 // const y = new Array.from({ length: 7 }, (_, i) => i + 1);
 // console.log(y);
-const bankDespson = acout
-    .flatMap((acc) => acc.movement)
-    .filter((mov) => mov > 0)
-    .reduce((a, b) => a + b, 0);
-console.log(bankDespson);
-const bankDespson1 = acout
-    .flatMap((acc) => acc.movement)
-    // .filter((mov) => mov > 0)
-    .reduce((a, b) => (a >= 1000 ? b++ : b), 0);
-console.log(bankDespson1);
-const { a, b } = acout
-    .flatMap((acc) => acc.movement)
-    .reduce(
-        (sums, cur) => {
-            sums[cur > 0 ? "a" : "b"] += cur;
-            return sums;
-        }, {
-            a: 0,
-            b: 0,
-        }
-    );
-console.log(a, b);
-const convertTitleCase = function(title) {
-    const expec = ["a", "an", "or", "the", "but", "on", "in", "with"];
-    const tittleCase = title
-        .toLowerCase()
-        .split(" ")
-        .map((word) => word[0].toUpperCase() + word.slice(1));
-    return tittleCase;
-};
-console.log(convertTitleCase(" this is a b c"));
+// const bankDespson = acout
+//     .flatMap((acc) => acc.movement)
+//     .filter((mov) => mov > 0)
+//     .reduce((a, b) => a + b, 0);
+// console.log(bankDespson);
+// const bankDespson1 = acout
+//     .flatMap((acc) => acc.movement)
+//     // .filter((mov) => mov > 0)
+//     .reduce((a, b) => (a >= 1000 ? b++ : b), 0);
+// console.log(bankDespson1);
+// const { a, b } = acout
+//     .flatMap((acc) => acc.movement)
+//     .reduce(
+//         (sums, cur) => {
+//             sums[cur > 0 ? "a" : "b"] += cur;
+//             return sums;
+//         }, {
+//             a: 0,
+//             b: 0,
+//         }
+//     );
+// console.log(a, b);
+// const convertTitleCase = function(title) {
+//     const expec = ["a", "an", "or", "the", "but", "on", "in", "with"];
+//     const tittleCase = title
+//         .toLowerCase()
+//         .split(" ")
+//         .map((word) => word[0].toUpperCase() + word.slice(1));
+//     return tittleCase;
+// };
+// console.log(convertTitleCase(" this is a b c"));
