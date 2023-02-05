@@ -132,18 +132,18 @@
 
 // tabs.forEach((t) => t.classList.remove("openration_tab_active"));
 // clicked.classList.add("openration_tab_active");
-const nav = document.querySelector("nav");
+// const nav = document.querySelector("nav");
 
-function handel(e) {
-    if (e.target.classlist.contains("nav_link")) {
-        const link = e.target;
-        const siblings = link.closest(".nav").querySelectorAll(".nav_link");
-        const logo = link.closest(".nav").querySelectorAll("img");
-    }
-    siblings.forEach((el) => {
-        if (el !== link) el.style.opacity = 0.5;
-    });
-    logo.style.opacity = 0.5;
-}
-nav.addEventListener("mouseover", handel.bind(0.5));
-nav.addEventListener("mouseout", handel.bind(1));
+// function handel(e) {
+//     if (e.target.classlist.contains("nav_link")) {
+//         const link = e.target;
+//         const siblings = link.closest(".nav").querySelectorAll(".nav_link");
+//         const logo = link.closest(".nav").querySelectorAll("img");
+//     }
+//     siblings.forEach((el) => {
+//         if (el !== link) el.style.opacity = 0.5;
+//     });
+//     logo.style.opacity = 0.5;
+// }
+// nav.addEventListener("mouseover", handel.bind(0.5));
+// nav.addEventListener("mouseout", handel.bind(1));
