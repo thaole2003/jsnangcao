@@ -61,12 +61,29 @@
 //     });
 //     section1.scrollIntoView({ behavior: "smooth" });
 // });
-const h1 = document.querySelector("h1");
-const alertH1 = function(e) {
-    alert("addEventListener:great");
-};
-h1.addEventListener("mouseenter", alertH1);
-// h1.onmouseenter = function(e) {
-//     alert("onmouseenter:great");
+// const h1 = document.querySelector("h1");
+// const alertH1 = function(e) {
+//     alert("addEventListener:great");
 // };
-setTimeout(() => h1.removeEventListener("mouseenter", alertH1), 3000);
+// h1.addEventListener("mouseenter", alertH1);
+// // h1.onmouseenter = function(e) {
+// //     alert("onmouseenter:great");
+// // };
+// setTimeout(() => h1.removeEventListener("mouseenter", alertH1), 3000);
+const ranDomInt = (min, max) =>
+    Math.floor(Math.random() * (max - min + 1) + min);
+const randomColor = () =>
+    `rgb(${ranDomInt(0, 255)},${ranDomInt(0, 255)},${ranDomInt(0, 255)})`;
+document.querySelector(".nav_link").addEventListener("click", function(e) {
+    this.style.backgroundColor = randomColor();
+    console.log("Link", e.target, e.currentTarget);
+    console.log(e.currentTarget === this);
+});
+document.querySelector(".nav_links").addEventListener("click", function(e) {
+    this.style.backgroundColor = randomColor();
+    console.log("Container", e.target, e.currentTarget);
+});
+document.querySelector(".nav").addEventListener("click", function(e) {
+    this.style.backgroundColor = randomColor();
+    console.log("Nav", e.target, e.currentTarget);
+});
