@@ -152,37 +152,48 @@
 //     if (window.scrollY > initiaCoords.top) nav.classlist.add("stiky");
 //     else nav.classlist.remove("sticky");
 // });
-const slides = document.querySelectorAll(".slide");
-const btnL = document.querySelectorAll(".btn_left");
-const btnR = document.querySelectorAll(".btn_right");
-const slider = document.querySelector(".slider");
-let corslide = 0;
-const maxslide = slides.length;
-slider.style.transform = "scale(0.4) translateX(-800px)";
-slider.style.overflow = "visible";
-slides.forEach((s, i) => (s.style.transform = `translateX(${100 * i}%)`));
+// const slides = document.querySelectorAll(".slide");
+// const btnL = document.querySelectorAll(".btn_left");
+// const btnR = document.querySelectorAll(".btn_right");
+// const slider = document.querySelector(".slider");
+// let corslide = 0;
+// const maxslide = slides.length;
+// slider.style.transform = "scale(0.4) translateX(-800px)";
+// slider.style.overflow = "visible";
+// slides.forEach((s, i) => (s.style.transform = `translateX(${100 * i}%)`));
 
-function gotoslide() {
-    slides.forEach(
-        (s, i) => (s.style.transform = `translateX(${100 * (i - curSlide)}%)`)
-    );
-}
-const nextslide = function() {
-    if (corslide === maxslide - 1) {
-        corslide = 0;
-    } else {
-        corslide++;
-    }
-    gotoslide(corslide);
-};
-const prevslide = function() {
-    // if (corslide === maxslide - 1) {
-    //     corslide = 0;
-    // } else {
-    //     corslide++;
-    // }
-    corslide--;
-    gotoslide(corslide);
-};
-btnR.addEventListener("click", nextslide);
-btnL.addEventListener("click", prevslide);
+// function gotoslide() {
+//     slides.forEach(
+//         (s, i) => (s.style.transform = `translateX(${100 * (i - curSlide)}%)`)
+//     );
+// }
+// const nextslide = function() {
+//     if (corslide === maxslide - 1) {
+//         corslide = 0;
+//     } else {
+//         corslide++;
+//     }
+//     gotoslide(corslide);
+// };
+// const prevslide = function() {
+//     // if (corslide === maxslide - 1) {
+//     //     corslide = 0;
+//     // } else {
+//     //     corslide++;
+//     // }
+//     corslide--;
+//     gotoslide(corslide);
+// };
+// btnR.addEventListener("click", nextslide);
+// btnL.addEventListener("click", prevslide);
+window.addEventListener("DOMContentLoaded", function(e) {
+    console.log("HTML PAEr and dom tree", e);
+});
+window.addEventListener("load", function(e) {
+    console.log("page fully loaded", e);
+});
+window.addEventListener("beforeunload", function(e) {
+    e.preventDefault();
+    console.log(e);
+    e.returnValue = "";
+});
