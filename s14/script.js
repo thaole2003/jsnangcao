@@ -52,3 +52,14 @@ console.log(jonas.scpecies, b.scpecies);
 // hasOwnProperty là một phương thức của đối tượng Object trong JavaScript.Nó trả về một giá trị Boolean xác định xem đối tượng có chứa một thuộc tính riêng(không kế thừa) với tên cho trước hay không.
 console.log(jonas.hasOwnProperty("firstName"));
 console.log(jonas.hasOwnProperty("name"));
+console.log("                                                        ");
+console.log(jonas.__proto__);
+console.log(jonas.__proto__.__proto__);
+console.log(jonas.__proto__.__proto__.__proto__);
+console.log(Person.prototype.constructor);
+const ab = Array(3, 4, 5, 6);
+console.log(ab.__proto__);
+Array.prototype.unique = function() {
+    return [...new Set(this)];
+};
+console.log(ab.unique);
