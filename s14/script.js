@@ -63,20 +63,31 @@
 //     return [...new Set(this)];
 // };
 // console.log(ab.unique);
-class ABC {
-    constructor(name, age) {
-        this.name = name;
-        this.age = age;
-    }
-    calcAge() {
-        console.log(2030 - this.age);
-    }
-}
-const abcc = new ABC("THẢO", 2003);
-console.log(abcc);
-abcc.calcAge();
-ABC.prototype.greet = function() {
-    console.log("hey babe" + this.name);
+// class ABC {
+//     constructor(name, age) {
+//         this.name = name;
+//         this.age = age;
+//     }
+//     calcAge() {
+//         console.log(2030 - this.age);
+//     }
+// }
+// const abcc = new ABC("THẢO", 2003);
+// console.log(abcc);
+// abcc.calcAge();
+// ABC.prototype.greet = function() {
+//     console.log("hey babe" + this.name);
+// };
+// console.log(abcc.__proto__ === ABC.prototype);
+// abcc.greet();
+const acout = {
+    onwer: "a",
+    movment: [2, 3, 4, 5],
+    get lastest() {
+        //Array.prototype.pop() trong JavaScript là một method của mảng, nó xóa phần tử cuối cùng của mảng và trả về giá trị của phần tử đó. Method này sẽ thay đổi giá trị của mảng gốc và trả về giá trị của phần tử cuối cùng đã xóa
+        return this.movment.slice(-1).pop();
+    },
+    set lastest(mov) {
+        this.movment.push(mov);
+    },
 };
-console.log(abcc.__proto__ === ABC.prototype);
-abcc.greet();
