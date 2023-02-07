@@ -158,12 +158,18 @@
 // jay.intro();
 // console.log(jay.calcAge());
 class Account {
+    //public fields
+    locale = navigator.language;
+    //private fields
+    #
+    movment = [];#
+    pin;
     constructor(owner, currency, pin) {
         this.owner = owner;
         this.currency = currency;
         this.pin = pin;
-        this._movement = [];
-        this.locale = navigator.language;
+        // this._movement = [];
+        // this.locale = navigator.language;
         //navigator là một built-in object trong JavaScript, nó chứa thông tin về trình duyệt web đang sử dụng. Bạn có thể sử dụng navigator để lấy thông tin về user agent, platform, và các tính năng cụ thể của trình duyệt.
         console.log(`thank for opening an ac ${this.owner}`);
     }
