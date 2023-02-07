@@ -101,59 +101,91 @@
 
 // const area = Rectangle.calculateArea(10, 20);
 // console.log(area); // 200
-const Person = function(name, birtday) {
-    this.name = name;
-    this.birtday = birtday;
-};
-Person.prototype.calcAge = function() {
-    return 2033 - this.birtday;
-};
-const Student = function(name, birtday, course) {
-    // this.name = name;
-    // this.birtday = birtday;
-    Person.call(this, name, birtday);
-    this.course = course;
-};
-//Object.create là một method trong JavaScript có sẵn trong Object built-in object. Nó tạo ra một object mới với prototype chỉ định và các thuộc tính (optional). Điều này cho phép bạn xây dựng prototype chain mới mà không cần sử dụng constructor functions.
-Student.prototype = Object.create(Person.prototype);
-Student.prototype.intro = function() {
-    console.log(`my name is ${this.name} and i study ${this.course}`);
-};
+// const Person = function(name, birtday) {
+//     this.name = name;
+//     this.birtday = birtday;
+// };
+// Person.prototype.calcAge = function() {
+//     return 2033 - this.birtday;
+// };
+// const Student = function(name, birtday, course) {
+//     // this.name = name;
+//     // this.birtday = birtday;
+//     Person.call(this, name, birtday);
+//     this.course = course;
+// };
+// //Object.create là một method trong JavaScript có sẵn trong Object built-in object. Nó tạo ra một object mới với prototype chỉ định và các thuộc tính (optional). Điều này cho phép bạn xây dựng prototype chain mới mà không cần sử dụng constructor functions.
+// Student.prototype = Object.create(Person.prototype);
+// Student.prototype.intro = function() {
+//     console.log(`my name is ${this.name} and i study ${this.course}`);
+// };
 
-const mike = new Student("mike", 2002, "js");
-mike.intro();
-console.log(mike.__proto__);
-console.log(mike.__proto__.__proto__);
-class Studen1 extends Student {
-    constructor(name, birtday, course) {
-        super(name, birtday);
-        this.course = course;
+// const mike = new Student("mike", 2002, "js");
+// mike.intro();
+// console.log(mike.__proto__);
+// console.log(mike.__proto__.__proto__);
+// class Studen1 extends Student {
+//     constructor(name, birtday, course) {
+//         super(name, birtday);
+//         this.course = course;
+//     }
+//     intro = function() {
+//         console.log(`my name is ${this.name} and i study ${this.course}`);
+//     };
+// }
+// const martha = new Studen1("Martha", 2012, "php");
+// martha.intro();
+// const personProto = {
+//     calcAge() {
+//         return 2033 - this.birtday;
+//     },
+//     init(name, birtday) {
+//         this.name = name;
+//         this.birtday = birtday;
+//     },
+// };
+// const steven = Object.create(personProto);
+// const Studentproto = Object.create(personProto);
+// Studentproto.init = function(name, birtday, course) {
+//     personProto.init.call(this, name, birtday);
+//     this.course = course;
+// };
+// Studentproto.intro = function() {
+//     console.log(`my name is ${this.name} and i study ${this.course}`);
+// };
+// const jay = Object.create(Studentproto);
+// jay.init("jay", 2010, "java");
+// jay.intro();
+// console.log(jay.calcAge());
+class Account {
+    constructor(owner, currency, pin) {
+        this.owner = owner;
+        this.currency = currency;
+        this.pin = pin;
+        this.movement = [];
+        this.locale = navigator.language;
+        //navigator là một built-in object trong JavaScript, nó chứa thông tin về trình duyệt web đang sử dụng. Bạn có thể sử dụng navigator để lấy thông tin về user agent, platform, và các tính năng cụ thể của trình duyệt.
+        console.log(`thank for opening an ac ${this.owner}`);
     }
-    intro = function() {
-        console.log(`my name is ${this.name} and i study ${this.course}`);
-    };
+    depossit(val) {
+        this.movement.push(val);
+    }
+    withdraw(val) {
+        this.depossit(-val);
+    }
+    apend(val) {
+        return true;
+    }
+    request(val) {
+        if (this.apend(val)) {
+            this.depossit(val);
+            console.log("aaaa");
+        }
+    }
 }
-const martha = new Studen1("Martha", 2012, "php");
-martha.intro();
-const personProto = {
-    calcAge() {
-        return 2033 - this.birtday;
-    },
-    init(name, birtday) {
-        this.name = name;
-        this.birtday = birtday;
-    },
-};
-const steven = Object.create(personProto);
-const Studentproto = Object.create(personProto);
-Studentproto.init = function(name, birtday, course) {
-    personProto.init.call(this, name, birtday);
-    this.course = course;
-};
-Studentproto.intro = function() {
-    console.log(`my name is ${this.name} and i study ${this.course}`);
-};
-const jay = Object.create(Studentproto);
-jay.init("jay", 2010, "java");
-jay.intro();
-console.log(jay.calcAge());
+const acc1 = new Account("jonas", "eur", "111");
+acc1.movement.push(25);
+acc1.depossit(25);
+acc1.withdraw(150);
+acc1.request(1000);
+console.log(acc1);
