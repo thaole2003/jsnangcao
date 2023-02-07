@@ -80,14 +80,23 @@
 // };
 // console.log(abcc.__proto__ === ABC.prototype);
 // abcc.greet();
-const acout = {
-    onwer: "a",
-    movment: [2, 3, 4, 5],
-    get lastest() {
-        //Array.prototype.pop() trong JavaScript là một method của mảng, nó xóa phần tử cuối cùng của mảng và trả về giá trị của phần tử đó. Method này sẽ thay đổi giá trị của mảng gốc và trả về giá trị của phần tử cuối cùng đã xóa
-        return this.movment.slice(-1).pop();
-    },
-    set lastest(mov) {
-        this.movment.push(mov);
-    },
-};
+// const acout = {
+//     onwer: "a",
+//     movment: [2, 3, 4, 5],
+//     get lastest() {
+//         //Array.prototype.pop() trong JavaScript là một method của mảng, nó xóa phần tử cuối cùng của mảng và trả về giá trị của phần tử đó. Method này sẽ thay đổi giá trị của mảng gốc và trả về giá trị của phần tử cuối cùng đã xóa
+//         return this.movment.slice(-1).pop();
+//     },
+//     set lastest(mov) {
+//         this.movment.push(mov);
+//     },
+
+// };
+class Rectangle {
+    static calculateArea(width, height) {
+        return width * height;
+    }
+}
+
+const area = Rectangle.calculateArea(10, 20);
+console.log(area); // 200
