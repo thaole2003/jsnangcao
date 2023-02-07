@@ -1,3 +1,4 @@
+// __proto__ trong JavaScript là một thuộc tính của một đối tượng, nó chỉ ra prototype của đối tượng đó. Prototype là một đối tượng mà các đối tượng khác có thể kế thừa từ nó. Bằng cách sử dụng __proto__, các thuộc tính và phương thức của prototype có thể truy cập và sử dụng từ các đối tượng kế thừa. Tuy nhiên, việc sử dụng __proto__ không khuyến khích vì nó là một tính năng đặc biệt và không chuẩn xác cho các trình duyệt khác nhau. Thay vào đó, sử dụng Object.getPrototypeOf() hoặc Object.setPrototypeOf() để truy cập và thay đổi prototype.
 // // Object literal
 // // const obj = {
 // //     name: "John",
@@ -91,12 +92,34 @@
 //         this.movment.push(mov);
 //     },
 
-// };
-class Rectangle {
-    static calculateArea(width, height) {
-        return width * height;
-    }
-}
+// // };
+// class Rectangle {
+//     static calculateArea(width, height) {
+//         return width * height;
+//     }
+// }
 
-const area = Rectangle.calculateArea(10, 20);
-console.log(area); // 200
+// const area = Rectangle.calculateArea(10, 20);
+// console.log(area); // 200
+const Person = function(name, birtday) {
+    this.name = name;
+    this.birtday = birtday;
+};
+Person.prototype.calcAge = function() {
+    return 2033 - this.birtday;
+};
+const Student = function(name, birtday, course) {
+    // this.name = name;
+    // this.birtday = birtday;
+    Person.call(this, name, birtday);
+    this.course = course;
+};
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.intro = function() {
+    console.log(`my name is ${this.name} and i study ${this.course}`);
+};
+
+const mike = new Student("mike", 2002, "js");
+mike.intro();
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
