@@ -10,32 +10,32 @@
 // Ajax sử dụng JavaScript để gửi và nhận dữ liệu từ máy chủ mà không cần tải lại trang web. Nó sử dụng XMLHttpRequest để gửi và nhận dữ liệu mà không cần tải lại trang, hoặc sử dụng Fetch API. Ajax có thể sử dụng để tải dữ liệu từ máy chủ, cập nhật dữ liệu mà không cần tải lại trang, hoặc gửi dữ liệu đến máy chủ mà không cần tải lại trang.
 
 //
-const btn_country = document.querySelector(".btn_country");
-const country = document.querySelector(".country");
-const request = new XMLHttpRequest();
-const getcoutry = function (countryy) {
-  request.open("GET", `https://restcountries.com/v2/name/${countryy}`);
-  request.send();
-  console.log(request.responseText);
-  request.addEventListener("load", function () {
-    const [data] = JSON.parse(this.responseText);
-    console.log(data);
-    const html = `
-    <div class="country">
-    <img src="${data.flag}" alt="">
-    <div>
-        <h3>${data.name}</h3>
-        <h4>${data.region}</h4>
-        <p>${(data.population / 1000000).toFixed(1)}</p>
-        <p>${data.languages[0].name}</p>
-        <p>${data.currencies[0].name}</p>
-    </div>
-    </div>
-    `;
-    country.insertAdjacentHTML("beforeend", html);
-  });
-};
-getcoutry("portugal");
+// const btn_country = document.querySelector(".btn_country");
+// const country = document.querySelector(".country");
+// const request = new XMLHttpRequest();
+// const getcoutry = function (countryy) {
+//   request.open("GET", `https://restcountries.com/v2/name/${countryy}`);
+//   request.send();
+//   console.log(request.responseText);
+//   request.addEventListener("load", function () {
+//     const [data] = JSON.parse(this.responseText);
+//     console.log(data);
+//     const html = `
+//     <div class="country">
+//     <img src="${data.flag}" alt="">
+//     <div>
+//         <h3>${data.name}</h3>
+//         <h4>${data.region}</h4>
+//         <p>${(data.population / 1000000).toFixed(1)}</p>
+//         <p>${data.languages[0].name}</p>
+//         <p>${data.currencies[0].name}</p>
+//     </div>
+//     </div>
+//     `;
+//     country.insertAdjacentHTML("beforeend", html);
+//   });
+// };
+// getcoutry("portugal");
 
 // // getcoutry("germany");
 // getcoutry("usa");
