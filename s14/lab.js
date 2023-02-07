@@ -9,14 +9,14 @@
 // Test case
 // Dữ liệu ô tô 1: BMW đang chạy với tốc độ 120km/h
 // Dữ liệu ô tô 2: Mercedes đang chạy với tốc độ 95km/h
-const Car = function(make, speed) {
-    this.make = make;
-    this.speed = speed;
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
 };
-Car.prototype.accelerate = function() {};
-Car.prototype.brake = function() {
-    this.speed -= 5;
-    console.log(this.speed + " km/h");
+Car.prototype.accelerate = function () {};
+Car.prototype.brake = function () {
+  this.speed -= 5;
+  console.log(this.speed + " km/h");
 };
 const bmw = new Car("bmw", 120);
 bmw.accelerate();
@@ -31,23 +31,23 @@ bmw.brake();
 //     & 'brake', 2 getter & setter;
 //     Test case
 //     LAB	7 LẬP TRÌNH JAVASCRIPT NÂNG CAO TRANG 2 DỮ LIỆU XE 1: Xe ô tô Ford đang di chuyển với vận tốc 120km/h
-// class car {
-//     constructor(make, speed) {
-//         this.make = make;
-//         this.speed = speed;
-//     }
-//     accelerate() {
-//         this.speed += 10;
-//         console.log(this.speed + " km/h");
-//     }
-//     brake = function() {
-//         this.speed -= 5;
-//         console.log(this.speed + " km/h");
-//     };
-//     get speedUS() {
-//         return this.speed / 1.6;
-//     }
-// }
+class car {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+  accelerate() {
+    this.speed += 10;
+    console.log(this.speed + " km/h");
+  }
+  brake = function () {
+    this.speed -= 5;
+    console.log(this.speed + " km/h");
+  };
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+}
 // const toyota = new car("toyota", 50);
 // console.log(toyota.speedUS);
 // toyota.accelerate();
@@ -71,25 +71,55 @@ bmw.brake();
 // Test case
 // DỮ LIỆU XE 1: Ô tô 'Tesla' đang di chuyển với vận tốc 120 km/h, có mức pin là
 // 23%;
-const EV = function(make, speed, charge) {
-    Car.call(this, make, speed);
-    this.charge = charge;
+const EV = function (make, speed, charge) {
+  Car.call(this, make, speed);
+  this.charge = charge;
 };
 EV.prototype = Object.create(Car.prototype);
-EV.prototype.chargeBattery = function(chargeTo) {
-    this.charge = chargeTo;
+EV.prototype.chargeBattery = function (chargeTo) {
+  this.charge = chargeTo;
 };
-EV.prototype.accelerate = function() {
+EV.prototype.accelerate = function () {
+  this.speed += 20;
+  this.charge--;
+  console.log(
+    "oto đang đi với tốc độ" + this.speed + "with a change of" + this.charge
+  );
+};
+// const tesla = new EV("Tesla", 120, 30);
+// tesla.chargeBattery(90);
+// console.log(tesla);
+// tesla.accelerate();
+// tesla.accelerate();
+// tesla.accelerate();
+// tesla.accelerate();
+// CODING	CHALLENGE	#4
+// 1. Khởi tạo đối tượng bài 3, nhưng sử dụng ES6 classes: khởi tạo 'EVCL' là con của
+// 'CarCl' ( EVCL extends CarCl );
+// 3. Để property 'charge' là private;
+// 3. Triển khai 2 method 'accelerate' và 'chargeBattery' ở đối tượng này và cập
+// nhập lại method 'brake' trong đối tượng 'CarCl'. ???
+// Test case
+// DỮ LIỆU Ô TÔ 1: Ô tô 'Rivian' di chuyển với tốc độ 120 km/h, với mức pin là 23%
+class EVCL extends car {
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+  chargeBattery = function (chargeTo) {
+    this.#charge = chargeTo;
+  };
+  accelerate = function () {
     this.speed += 20;
-    this.charge--;
-    console.log(
-        "oto đang đi với tốc độ" + this.speed + "with a change of" + this.charge
+    this.#charge--;
+
+    return (
+      "oto đang đi với tốc độ" + this.speed + "with a change of" + this.#charge
     );
-};
-const tesla = new EV("Tesla", 120, 30);
-tesla.chargeBattery(90);
-console.log(tesla);
-tesla.accelerate();
-tesla.accelerate();
-tesla.accelerate();
-tesla.accelerate();
+  };
+}
+const mazda = new EVCL("mazda", 100, 90);
+console.log(mazda);
+mazda.accelerate().accelerate().accelerate().accelerate();
+console.log(mazda);
