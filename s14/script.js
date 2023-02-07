@@ -157,19 +157,22 @@
 // jay.init("jay", 2010, "java");
 // jay.intro();
 // console.log(jay.calcAge());
+//Private Class Fields và Private Class Methods trong JavaScript là các thuộc tính và phương thức của một class mà chỉ có thể truy cập bên trong class. Chúng không thể truy cập bởi các instances hoặc bên ngoài class.
+
+// Tính năng này đã được thêm vào JavaScript từ phiên bản ECMAScript 2021. Để tạo ra một private class field, bạn cần sử dụng từ khoá # trước tên của thuộc tính.
 class Account {
     //public fields
-    locale = navigator.language;
+    // locale = navigator.language;
     //private fields
-    #
-    movment = [];#
-    pin;
+
+    // movment = [];
+    // pin;
     constructor(owner, currency, pin) {
         this.owner = owner;
         this.currency = currency;
         this.pin = pin;
-        // this._movement = [];
-        // this.locale = navigator.language;
+        this._movement = [];
+        this.locale = navigator.language;
         //navigator là một built-in object trong JavaScript, nó chứa thông tin về trình duyệt web đang sử dụng. Bạn có thể sử dụng navigator để lấy thông tin về user agent, platform, và các tính năng cụ thể của trình duyệt.
         console.log(`thank for opening an ac ${this.owner}`);
     }
@@ -197,6 +200,7 @@ const acc1 = new Account("jonas", "eur", "111");
 acc1.depossit(25);
 acc1.withdraw(150);
 acc1.request(1000);
-console.log(acc1._movement);
+acc1.depossit(40).withdraw(10).request(19);
+console.log(acc1.getmoment());
 console.log(acc1.getmoment());
 console.log(acc1);
