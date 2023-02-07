@@ -114,6 +114,7 @@ const Student = function(name, birtday, course) {
     Person.call(this, name, birtday);
     this.course = course;
 };
+//Object.create là một method trong JavaScript có sẵn trong Object built-in object. Nó tạo ra một object mới với prototype chỉ định và các thuộc tính (optional). Điều này cho phép bạn xây dựng prototype chain mới mà không cần sử dụng constructor functions.
 Student.prototype = Object.create(Person.prototype);
 Student.prototype.intro = function() {
     console.log(`my name is ${this.name} and i study ${this.course}`);
@@ -134,3 +135,25 @@ class Studen1 extends Student {
 }
 const martha = new Studen1("Martha", 2012, "php");
 martha.intro();
+const personProto = {
+    calcAge() {
+        return 2033 - this.birtday;
+    },
+    init(name, birtday) {
+        this.name = name;
+        this.birtday = birtday;
+    },
+};
+const steven = Object.create(personProto);
+const Studentproto = Object.create(personProto);
+Studentproto.init = function(name, birtday, course) {
+    personProto.init.call(this, name, birtday);
+    this.course = course;
+};
+Studentproto.intro = function() {
+    console.log(`my name is ${this.name} and i study ${this.course}`);
+};
+const jay = Object.create(Studentproto);
+jay.init("jay", 2010, "java");
+jay.intro();
+console.log(jay.calcAge());
