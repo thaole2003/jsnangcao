@@ -123,3 +123,14 @@ const mike = new Student("mike", 2002, "js");
 mike.intro();
 console.log(mike.__proto__);
 console.log(mike.__proto__.__proto__);
+class Studen1 extends Student {
+    constructor(name, birtday, course) {
+        super(name, birtday);
+        this.course = course;
+    }
+    intro = function() {
+        console.log(`my name is ${this.name} and i study ${this.course}`);
+    };
+}
+const martha = new Studen1("Martha", 2012, "php");
+martha.intro();
