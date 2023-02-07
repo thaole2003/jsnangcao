@@ -162,19 +162,22 @@ class Account {
         this.owner = owner;
         this.currency = currency;
         this.pin = pin;
-        this.movement = [];
+        this._movement = [];
         this.locale = navigator.language;
         //navigator là một built-in object trong JavaScript, nó chứa thông tin về trình duyệt web đang sử dụng. Bạn có thể sử dụng navigator để lấy thông tin về user agent, platform, và các tính năng cụ thể của trình duyệt.
         console.log(`thank for opening an ac ${this.owner}`);
     }
     depossit(val) {
-        this.movement.push(val);
+        this._movement.push(val);
     }
     withdraw(val) {
         this.depossit(-val);
     }
     apend(val) {
         return true;
+    }
+    getmoment() {
+        return this._movement;
     }
     request(val) {
         if (this.apend(val)) {
@@ -184,8 +187,10 @@ class Account {
     }
 }
 const acc1 = new Account("jonas", "eur", "111");
-acc1.movement.push(25);
+// acc1.movement.push(25);
 acc1.depossit(25);
 acc1.withdraw(150);
 acc1.request(1000);
+console.log(acc1._movement);
+console.log(acc1.getmoment());
 console.log(acc1);
