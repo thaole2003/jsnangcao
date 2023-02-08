@@ -30,28 +30,36 @@ const renderCoutry = function (data, className = "") {
     country.insertAdjacentHTML("beforeend", html);
   }
 };
-const getcoutryandNeiber = function (countryy) {
-  request.open("GET", `https://restcountries.com/v2/name/${countryy}`);
-  request.send();
-  console.log(request.responseText);
-  request.addEventListener("load", function () {
-    const [data] = JSON.parse(this.responseText);
-    console.log(data);
-    renderCoutry(data);
-    const [neighbour] = data.borders;
-    if (!neighbour) return;
-    //ajax call coutry 2
-    const request2 = new XMLHttpRequest();
-    request2.open("GET", `https://restcountries.com/v2/alpha/${neighbour}`);
-    request2.send();
-    request2.addEventListener("load", function () {
-      const data2 = JSON.parse(this.responseText);
-      console.log(data2);
-      renderCoutry(data2, "neighbour");
-    });
-  });
-};
-getcoutryandNeiber("portugal");
+// const getcoutryandNeiber = function (countryy) {
+//   request.open("GET", `https://restcountries.com/v2/name/${countryy}`);
+//   request.send();
+//   console.log(request.responseText);
+//   request.addEventListener("load", function () {
+//     const [data] = JSON.parse(this.responseText);
+//     console.log(data);
+//     renderCoutry(data);
+//     const [neighbour] = data.borders;
+//     if (!neighbour) return;
+//     //ajax call coutry 2
+//     const request2 = new XMLHttpRequest();
+//     request2.open("GET", `https://restcountries.com/v2/alpha/${neighbour}`);
+//     request2.send();
+//     request2.addEventListener("load", function () {
+//       const data2 = JSON.parse(this.responseText);
+//       console.log(data2);
+//       renderCoutry(data2, "neighbour");
+//     });
+//   });
+// };
+// getcoutryandNeiber("portugal");
 
 // getcoutry("germany");
-// getcoutryandNeiber("usa");
+// // getcoutryandNeiber("usa");
+// const request = fetch("https://restcountries.com/v2/name/portugal");
+// console.log(request);
+const getcoutryData = function (country) {
+  fetch(`https://restcountries.com/v2/name/${country}`)
+    .then((response) => response.json())
+    .then((data) => renderCoutry(data[0]));
+};
+getcoutryData("usa");
