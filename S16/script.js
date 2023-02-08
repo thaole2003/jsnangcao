@@ -57,6 +57,9 @@ const renderCoutry = function (data, className = "") {
 // // getcoutryandNeiber("usa");
 // const request = fetch("https://restcountries.com/v2/name/portugal");
 // console.log(request);
+const renderErr = function (msg) {
+  country.insertAdjacentText("beforeend", msg);
+};
 const getcoutryData = function (country) {
   fetch(`https://restcountries.com/v2/name/${country}`)
     .then((response) => response.json())
@@ -67,6 +70,12 @@ const getcoutryData = function (country) {
       return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
     })
     .then((response) => response.json())
-    .then((data) => renderCoutry(data, "neighbour"));
+    .then((data) => renderCoutry(data, "neighbour"))
+    .catch((err) => {
+      console.error(`${err}😵‍💫`);
+    });
 };
-getcoutryData("usa");
+btn_country.addEventListener("click", function () {
+  getcoutryData("usa");
+  renderErr("something went wrong");
+});
