@@ -126,30 +126,30 @@ const renderCoutry = function (data, className = "") {
 //   .then(() => console.log("4 second passed"));
 // Promise.resolve("abc").then((x) => console.log(x));
 // Promise.reject(new Error("problem!")).catch((x) => console.error(x));
-const getPosition = function () {
-  return new Promise(function (resole, reject) {
-    navigator.geolocation.getCurrentPosition(resole, reject);
-  });
-};
-// getPosition().then((pos) => console.log(pos));
+// const getPosition = function () {
+//   return new Promise(function (resole, reject) {
+//     navigator.geolocation.getCurrentPosition(resole, reject);
+//   });
+// };
+// // getPosition().then((pos) => console.log(pos));
 
-const whereAmI = () => {
-  getPosition()
-    .then((pos) => {
-      const { latitude: lat, longitude: lng } = pos.coords;
-      fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
-    })
-    .then((res) => {
-      if (!res.ok) throw new Error(`Problem with geocoding ${res.status}`);
-      res.json(), console.log(res);
-    })
-    .then((data) => {
-      console.log(data);
-      console.log(`you are in ${data.city},${data.country}`);
-      return fetch(`https:restcountries.eu/rest/v2/name${data.country}`);
-    })
-    .then((data) => renderCoutry(data[0]))
-    .catch((err) => console.error(err.message));
-};
+// const whereAmI = () => {
+//   getPosition()
+//     .then((pos) => {
+//       const { latitude: lat, longitude: lng } = pos.coords;
+//       fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+//     })
+//     .then((res) => {
+//       if (!res.ok) throw new Error(`Problem with geocoding ${res.status}`);
+//       res.json(), console.log(res);
+//     })
+//     .then((data) => {
+//       console.log(data);
+//       console.log(`you are in ${data.city},${data.country}`);
+//       return fetch(`https:restcountries.eu/rest/v2/name${data.country}`);
+//     })
+//     .then((data) => renderCoutry(data[0]))
+//     .catch((err) => console.error(err.message));
+// };
 
-btn_country.addEventListener("click", whereAmI);
+// btn_country.addEventListener("click", whereAmI);
