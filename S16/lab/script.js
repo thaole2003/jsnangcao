@@ -37,23 +37,50 @@ function createImage(imgPath) {
     });
   });
 }
-createImage("img/banner3.jpg")
-  .then(function (img) {
-    curentImg = img;
-    console.log("img loaded 1");
-    return wait(2);
-  })
-  .then(function () {
-    curentImg.style.display = "none";
+// createImage("img/banner3.jpg")
+//   .then(function (img) {
+//     curentImg = img;
+//     console.log("img loaded 1");
+//     return wait(2);
+//   })
+//   .then(function () {
+//     curentImg.style.display = "none";
 
-    return createImage("img/imgaa.png");
-  })
-  .then((img) => {
-    curentImg = img;
+//     return createImage("img/imgaa.png");
+//   })
+//   .then((img) => {
+//     curentImg = img;
+//     console.log("img load 2");
+//     return wait(2);
+//   })
+//   .then(function () {
+//     curentImg.style.display = "none";
+//   })
+//   .catch((err) => console.log(err));
+const loadNPause = async function () {
+  try {
+    let img = await createImage("img/banner3");
+    console.log("img load 1");
+    await wait(2);
+    img.style.display = "none";
+    img = await createImage("img/imgaa.png");
     console.log("img load 2");
-    return wait(2);
-  })
-  .then(function () {
-    curentImg.style.display = "none";
-  })
-  .catch((err) => console.log(err));
+    await wait(2);
+    img.style.display = "none";
+  } catch (error) {
+    console.log(error);
+  }
+};
+const loadAll = async function (imgArr) {
+  try {
+    const imgs = imgArr.map(async (img) => await createImage(img));
+    const imgsel = await Promise.all(imgs);
+    console.log(imgsel);
+    imgsel.forEach((img) => {
+      img.classList.add("parallel");
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+loadAll(["img/banner3.jpg", "img/imgaa.png"]);
