@@ -57,25 +57,33 @@ const renderCoutry = function (data, className = "") {
 // // getcoutryandNeiber("usa");
 // const request = fetch("https://restcountries.com/v2/name/portugal");
 // console.log(request);
-const renderErr = function (msg) {
-  country.insertAdjacentText("beforeend", msg);
-};
-const getcoutryData = function (country) {
-  fetch(`https://restcountries.com/v2/name/${country}`)
-    .then((response) => response.json())
-    .then((data) => {
-      renderCoutry(data[0]);
-      const neighbour = data[0].borders[0];
-      if (!neighbour) return;
-      return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
-    })
-    .then((response) => response.json())
-    .then((data) => renderCoutry(data, "neighbour"))
-    .catch((err) => {
-      console.error(`${err}😵‍💫`);
-    });
-};
-btn_country.addEventListener("click", function () {
-  getcoutryData("usa");
-  renderErr("something went wrong");
+// const renderErr = function (msg) {
+//   country.insertAdjacentText("beforeend", msg);
+// };
+// const getcoutryData = function (country) {
+//   fetch(`https://restcountries.com/v2/name/${country}`)
+//     .then((response) => response.json())
+//     .then((data) => {
+//       renderCoutry(data[0]);
+//       const neighbour = data[0].borders[0];
+//       if (!neighbour) return;
+//       return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
+//     })
+//     .then((response) => response.json())
+//     .then((data) => renderCoutry(data, "neighbour"))
+//     .catch((err) => {
+//       console.error(`${err}😵‍💫`);
+//     });
+// };
+// btn_country.addEventListener("click", function () {
+//   getcoutryData("usa");
+//   renderErr("something went wrong");
+// });
+console.log("Test start");
+setTimeout(() => console.log("o sec timer"), 0);
+Promise.resolve("resoled promise 2").then((res) => {
+  for (let i = 0; i < 10; i++) {
+    console.log(res);
+  }
 });
+console.log("test end");
