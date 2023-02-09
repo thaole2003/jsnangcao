@@ -87,42 +87,69 @@ const renderCoutry = function (data, className = "") {
 //   }
 // });
 // console.log("test end");
-const lotteryPromise = new Promise(function (resole, reject) {
-  console.log("lotte draw is happening");
-  setTimeout(function () {
-    if (Math.random() * 100 > 3.5) {
-      console.log("you win ");
-    } else {
-      reject(new Error("you lost your money"));
-    }
-  }, 2000);
-});
-lotteryPromise
-  .then((res) => console.log(res))
-  .catch((err) => console.error(err));
+// const lotteryPromise = new Promise(function (resole, reject) {
+//   console.log("lotte draw is happening");
+//   setTimeout(function () {
+//     if (Math.random() * 100 > 3.5) {
+//       console.log("you win ");
+//     } else {
+//       reject(new Error("you lost your money"));
+//     }
+//   }, 2000);
+// });
+// lotteryPromise
+//   .then((res) => console.log(res))
+//   .catch((err) => console.error(err));
 
-const wait = function (seconds) {
-  return new Promise(function (resole) {
-    setTimeout(resole, seconds * 1000);
+// const wait = function (seconds) {
+//   return new Promise(function (resole) {
+//     setTimeout(resole, seconds * 1000);
+//   });
+// };
+// wait(2)
+//   .then(() => {
+//     console.log("i wanted for 1 seconds");
+//     return wait(1);
+//   })
+//   .then(() => {
+//     console.log("i wanted for 2 seconds");
+//     return wait(1);
+//   })
+//   .then(() => {
+//     console.log("i wanted for 3 seconds");
+//     return wait(1);
+//   })
+//   .then(() => {
+//     console.log("i wanted for 4 seconds");
+//     return wait(1);
+//   })
+//   .then(() => console.log("4 second passed"));
+// Promise.resolve("abc").then((x) => console.log(x));
+// Promise.reject(new Error("problem!")).catch((x) => console.error(x));
+const getPosition = function () {
+  return new Promise(function (resole, reject) {
+    navigator.geolocation.getCurrentPosition(resole, reject);
   });
 };
-wait(2)
-  .then(() => {
-    console.log("i wanted for 1 seconds");
-    return wait(1);
-  })
-  .then(() => {
-    console.log("i wanted for 2 seconds");
-    return wait(1);
-  })
-  .then(() => {
-    console.log("i wanted for 3 seconds");
-    return wait(1);
-  })
-  .then(() => {
-    console.log("i wanted for 4 seconds");
-    return wait(1);
-  })
-  .then(() => console.log("4 second passed"));
-Promise.resolve("abc").then((x) => console.log(x));
-Promise.reject(new Error("problem!")).catch((x) => console.error(x));
+// getPosition().then((pos) => console.log(pos));
+
+const whereAmI = () => {
+  getPosition()
+    .then((pos) => {
+      const { latitude: lat, longitude: lng } = pos.coords;
+      fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    })
+    .then((res) => {
+      if (!res.ok) throw new Error(`Problem with geocoding ${res.status}`);
+      res.json(), console.log(res);
+    })
+    .then((data) => {
+      console.log(data);
+      console.log(`you are in ${data.city},${data.country}`);
+      return fetch(`https:restcountries.eu/rest/v2/name${data.country}`);
+    })
+    .then((data) => renderCoutry(data[0]))
+    .catch((err) => console.error(err.message));
+};
+
+btn_country.addEventListener("click", whereAmI);
