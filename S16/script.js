@@ -9,7 +9,7 @@
 
 // Ajax sử dụng JavaScript để gửi và nhận dữ liệu từ máy chủ mà không cần tải lại trang web. Nó sử dụng XMLHttpRequest để gửi và nhận dữ liệu mà không cần tải lại trang, hoặc sử dụng Fetch API. Ajax có thể sử dụng để tải dữ liệu từ máy chủ, cập nhật dữ liệu mà không cần tải lại trang, hoặc gửi dữ liệu đến máy chủ mà không cần tải lại trang.
 
-//
+//throw new trong JavaScript là một cú pháp để ném ra một ngoại lệ. Nó cho phép bạn tạo một đối tượng ngoại lệ và ném nó ra, để trình duyệt hoặc chương trình của bạn có thể biết rằng có một lỗi xảy ra và cần xử lý nó.
 const btn_country = document.querySelector(".btn_country");
 const country = document.querySelector(".country");
 const request = new XMLHttpRequest();
@@ -183,10 +183,10 @@ const whereAmI = async function () {
     };
   }
 };
-whereAmI();
-whereAmI();
-whereAmI();
-console.log("a");
+// whereAmI();
+// whereAmI();
+// whereAmI();
+// console.log("a");
 
 //try...catch là một cấu trúc trong Javascript cho phép bạn xử lý các lỗi (exceptions) trong mã của bạn. Nó cho phép bạn chạy một đoạn mã trong một khối try, và nếu có một lỗi xảy ra trong khối này, nó sẽ nhảy tới khối catch để xử lý lỗi đó.
 
@@ -201,3 +201,27 @@ console.log("a");
 //   console.error('An error occurred:', error);
 // }
 // Trong ví dụ trên, chúng ta gọi một hàm someFunctionThatMightThrowAnError và lưu kết quả của nó vào biến result. Nếu có lỗi xảy ra trong quá trình gọi hàm này, nó sẽ bị ném ra và được xử lý bởi khối catch. Trong khối catch, chúng ta có thể in ra thông tin về lỗi để giúp debug.
+
+const getJSON = (url, erroeMsg = "something went wrong") => {
+  return fetch(url).then((res) => {
+    if (!res.ok) throw new Error(`${erroeMsg}  ${res.status}`);
+    return res.json();
+  });
+};
+const get3Country = async function (c1, c2, c3) {
+  try {
+    const data = await Promise.all([
+      getJSON(`https://restcountries.com/v2/name/${c1}`),
+      getJSON(`https://restcountries.com/v2/name/${c1}`),
+      getJSON(`https://restcountries.com/v2/name/${c1}`),
+    ]);
+    // const [data1] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
+    // const [data2] = await getJSON(`https://restcountries.com/v2/name/${c2}`);
+    // const [data3] = await getJSON(`https://restcountries.com/v2/name/${c3}`);
+    console.log(data.map((a) => a[0].capital));
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+get3Country("portugal", "usa", "brazil");
