@@ -153,3 +153,24 @@ const renderCoutry = function (data, className = "") {
 // };
 
 // btn_country.addEventListener("click", whereAmI);
+const getPosition = function () {
+  return new Promise(function (resole, reject) {
+    navigator.geolocation.getCurrentPosition(resole, reject);
+  });
+};
+const whereAmI = async function () {
+  const pos = await getPosition();
+  const { latitude: lat, longitude: lng } = pos.coords;
+  const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+  const dataGeo = await resGeo.json();
+  console.log(dataGeo);
+
+  const res = await fetch(
+    `https://restcountries.com/v2/name/${dataGeo.country}`
+  );
+  const data = await res.json();
+  console.log(data);
+  renderCoutry(data[0]);
+};
+whereAmI();
+console.log("a");
