@@ -158,19 +158,46 @@ const getPosition = function () {
     navigator.geolocation.getCurrentPosition(resole, reject);
   });
 };
-const whereAmI = async function () {
-  const pos = await getPosition();
-  const { latitude: lat, longitude: lng } = pos.coords;
-  const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
-  const dataGeo = await resGeo.json();
-  console.log(dataGeo);
+//Promise và Async/Await là hai công cụ mạnh mẽ trong Javascript để giải quyết vấn đề bất đồng bộ.
 
-  const res = await fetch(
-    `https://restcountries.com/v2/name/${dataGeo.country}`
-  );
-  const data = await res.json();
-  console.log(data);
-  renderCoutry(data[0]);
+// Promise là một đối tượng trong Javascript, mà cho phép bạn chạy một tác vụ bất đồng bộ và thông báo kết quả sau khi tác vụ đó hoàn thành hoặc that bại. Bạn có thể sử dụng Promise để xử lý các tác vụ như gửi một yêu cầu HTTP, đọc tệp, hoặc thực hiện một tác vụ tính toán phức tạp.
+
+// Async/Await là một từ khoá trong Javascript, cho phép bạn viết mã bất đồng bộ một cách dễ đọc hơn với cú pháp giống như mã đồng bộ. Async/Await cho phép bạn gọi một Promise và chờ đợi kết quả của nó trước khi tiếp tục thực hiện các lệnh tiếp theo.
+const whereAmI = async function () {
+  try {
+    const pos = await getPosition();
+    const { latitude: lat, longitude: lng } = pos.coords;
+    const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    const dataGeo = await resGeo.json();
+    console.log(dataGeo);
+
+    const res = await fetch(
+      `https://restcountries.com/v2/name/${dataGeo.country}`
+    );
+    const data = await res.json();
+    console.log(data);
+    renderCoutry(data[0]);
+  } catch {
+    (error) => {
+      console.error(error + "😵‍💫");
+    };
+  }
 };
 whereAmI();
+whereAmI();
+whereAmI();
 console.log("a");
+
+//try...catch là một cấu trúc trong Javascript cho phép bạn xử lý các lỗi (exceptions) trong mã của bạn. Nó cho phép bạn chạy một đoạn mã trong một khối try, và nếu có một lỗi xảy ra trong khối này, nó sẽ nhảy tới khối catch để xử lý lỗi đó.
+
+// Ví dụ:
+
+// javascript
+// Copy code
+// try {
+//   const result = someFunctionThatMightThrowAnError();
+//   console.log(result);
+// } catch (error) {
+//   console.error('An error occurred:', error);
+// }
+// Trong ví dụ trên, chúng ta gọi một hàm someFunctionThatMightThrowAnError và lưu kết quả của nó vào biến result. Nếu có lỗi xảy ra trong quá trình gọi hàm này, nó sẽ bị ném ra và được xử lý bởi khối catch. Trong khối catch, chúng ta có thể in ra thông tin về lỗi để giúp debug.
