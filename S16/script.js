@@ -79,11 +79,50 @@ const renderCoutry = function (data, className = "") {
 //   getcoutryData("usa");
 //   renderErr("something went wrong");
 // });
-console.log("Test start");
-setTimeout(() => console.log("o sec timer"), 0);
-Promise.resolve("resoled promise 2").then((res) => {
-  for (let i = 0; i < 10; i++) {
-    console.log(res);
-  }
+// console.log("Test start");
+// setTimeout(() => console.log("o sec timer"), 0);
+// Promise.resolve("resoled promise 2").then((res) => {
+//   for (let i = 0; i < 10; i++) {
+//     console.log(res);
+//   }
+// });
+// console.log("test end");
+const lotteryPromise = new Promise(function (resole, reject) {
+  console.log("lotte draw is happening");
+  setTimeout(function () {
+    if (Math.random() * 100 > 3.5) {
+      console.log("you win ");
+    } else {
+      reject(new Error("you lost your money"));
+    }
+  }, 2000);
 });
-console.log("test end");
+lotteryPromise
+  .then((res) => console.log(res))
+  .catch((err) => console.error(err));
+
+const wait = function (seconds) {
+  return new Promise(function (resole) {
+    setTimeout(resole, seconds * 1000);
+  });
+};
+wait(2)
+  .then(() => {
+    console.log("i wanted for 1 seconds");
+    return wait(1);
+  })
+  .then(() => {
+    console.log("i wanted for 2 seconds");
+    return wait(1);
+  })
+  .then(() => {
+    console.log("i wanted for 3 seconds");
+    return wait(1);
+  })
+  .then(() => {
+    console.log("i wanted for 4 seconds");
+    return wait(1);
+  })
+  .then(() => console.log("4 second passed"));
+Promise.resolve("abc").then((x) => console.log(x));
+Promise.reject(new Error("problem!")).catch((x) => console.error(x));
